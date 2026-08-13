@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Book</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/book.css">
+    <link rel="stylesheet" href="styles/typography.css">
+</head>
+<body>
+    <div id="portfolio-book">
+        <div class="cover">
+            <a href="pages/cover.html" class="cover-link">Cover</a>
+        </div>
+        <div class="pages">
+            <div class="page" id="page-about">
+                <iframe src="pages/about.html" frameborder="0"></iframe>
+            </div>
+            <div class="page" id="page-works">
+                <iframe src="pages/works.html" frameborder="0"></iframe>
+            </div>
+            <div class="page" id="page-projects">
+                <iframe src="pages/projects.html" frameborder="0"></iframe>
+            </div>
+            <div class="page" id="page-contact">
+                <iframe src="pages/contact.html" frameborder="0"></iframe>
+            </div>
+            <div class="back-cover">
+                <iframe src="pages/back-cover.html" frameborder="0"></iframe>
+            </div>
+        </div>
+        <div class="bookmarks">
+            <button onclick="goToPage('page-about')">About</button>
+            <button onclick="goToPage('page-works')">Works</button>
+            <button onclick="goToPage('page-projects')">Projects</button>
+            <button onclick="goToPage('page-contact')">Contact</button>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/pageFlip.js"></script>
+    <script src="scripts/bookmarks.js"></script>
+</body>
+</html>

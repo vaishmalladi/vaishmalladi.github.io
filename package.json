@@ -1,0 +1,25 @@
+{
+  "name": "portfolio-book",
+  "version": "1.0.0",
+  "description": "A portfolio website designed like a book, showcasing the work of a visual designer.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build process can be defined here'"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "animejs": "^3.2.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "keywords": [
+    "portfolio",
+    "visual design",
+    "book",
+    "web design"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
