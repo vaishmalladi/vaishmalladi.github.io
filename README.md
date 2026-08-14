@@ -1,59 +1,53 @@
-# Portfolio Book
+# Portfolio — Gamified Product & Visual Designer Experience
 
-Welcome to the Portfolio Book project! This project is designed to showcase a visual designer's work in a unique, book-like format. The website features a cover page, turnable pages, and bookmarks for easy navigation, all reflecting a visually appealing aesthetic.
+An immersive, gamified portfolio site built as an interactive world rather than a
+traditional scrolling page. Visitors "spawn" into an experience, explore six themed
+"worlds," open projects as game-style missions, and unlock achievements and XP as
+they go.
 
-## Project Structure
+## Stack
 
-The project is organized as follows:
+- **React 19 + TypeScript + Vite** — app shell and build tooling
+- **Tailwind CSS v4** (via `@tailwindcss/vite`, CSS-first `@theme` tokens in `src/index.css`)
+- **Framer Motion** — micro-interactions, scroll reveals, magnetic buttons, modals
+- **Three.js + React Three Fiber + drei** — floating glass "islands" background (lazy-loaded)
+- **Lenis** — smooth/inertial scrolling
+- **Zustand** (with persist) — gamification state: XP, levels, explored worlds, achievements
+
+## Structure
 
 ```
-portfolio-book
-├── src
-│   ├── index.html          # Main entry point for the portfolio website
-│   ├── styles              # Contains CSS files for styling
-│   │   ├── main.css        # General styles for layout and design
-│   │   ├── book.css        # Styles specific to the book layout and animations
-│   │   └── typography.css   # Typography styles for readability and appeal
-│   ├── scripts             # JavaScript files for functionality
-│   │   ├── main.js         # Initializes website functionality
-│   │   ├── pageFlip.js     # Logic for page-flipping animations
-│   │   └── bookmarks.js     # Manages bookmarks for navigation
-│   └── pages               # HTML files for each page of the portfolio
-│       ├── cover.html      # Cover page of the portfolio
-│       ├── about.html      # About the designer
-│       ├── works.html      # Showcase of works
-│       ├── projects.html    # Details of specific projects
-│       ├── contact.html     # Contact information and form
-│       └── back-cover.html  # Back cover of the portfolio
-├── assets
-│   └── fonts               # Custom fonts for the website
-├── package.json            # npm configuration file
-└── README.md               # Documentation for the project
+src/
+  components/
+    background/   Aurora CSS background + Three.js floating field
+    cursor/       Custom magnetic/glow cursor
+    hud/          XP bar, achievement toasts, completion modal
+    intro/        "Press Start" cinematic loading sequence
+    nav/          Holographic radial nav + minimap/progress dock
+    project/      Mission card + full mission detail modal
+    ui/           Shared building blocks (glass panels, stat counters, skill radar, etc.)
+    worlds/       The six explorable "world" sections
+  data/content.ts Single source of truth for profile stats, projects, tokens, copy
+  store/gameStore.ts  Zustand store powering XP/achievements/exploration tracking
+  lib/            Small helpers (classnames, smooth-scroll bridge to Lenis)
 ```
-
-## Features
-
-- **Book-like Interface**: The portfolio is designed to resemble a book, with a cover, pages that can be turned, and a back cover.
-- **Visual Design**: The aesthetic reflects the skills and style of a visual designer, with careful attention to layout, color, and typography.
-- **Navigation**: Users can easily navigate through the portfolio using bookmarks that link to specific pages.
-- **Responsive Design**: The website is designed to be responsive, ensuring a good experience on both desktop and mobile devices.
 
 ## Getting Started
 
-To get started with the Portfolio Book project:
+```bash
+npm install
+npm run dev      # start local dev server
+npm run build    # type-check + production build
+npm run lint     # eslint
+```
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory.
-3. Install the necessary dependencies using npm:
-   ```
-   npm install
-   ```
-4. Open `src/index.html` in your web browser to view the portfolio.
+## Personalizing
 
-## Contributing
-
-Contributions are welcome! If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
+- Edit `src/data/content.ts` for profile stats, skills, timeline, project case studies,
+  design tokens, and "Beyond Design" scrapbook items.
+- Replace the contact links in `src/components/ContactPortal.tsx`.
+- Achievement copy lives in the `ACHIEVEMENTS` map in `src/data/content.ts`.
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+MIT

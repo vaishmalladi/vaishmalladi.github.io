@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-canvas: #f6f5ff;
+  --color-canvas-deep: #ece9ff;
+  --color-ink: #14131f;
+  --color-ink-soft: #55536e;
+  --color-ink-faint: #8785a3;
+
+  --color-glass: rgba(255, 255, 255, 0.55);
+  --color-glass-strong: rgba(255, 255, 255, 0.78);
+  --color-glass-border: rgba(255, 255, 255, 0.9);
+
+  --color-violet: #7c6cff;
+  --color-violet-deep: #5b3df0;
+  --color-cyan: #2fd6e8;
+  --color-coral: #ff8a65;
+  --color-gold: #ffc65c;
+  --color-mint: #4fe0b8;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -18px, 0) rotate(2deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.55; filter: blur(40px); }
+  50% { opacity: 0.9; filter: blur(55px); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes dash-spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-float-slow { animation: float 9s ease-in-out infinite; }
+.animate-float-slower { animation: float 14s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3.2s ease-in-out infinite; }
+.animate-marquee { animation: marquee 26s linear infinite; }
+.animate-dash-spin { animation: dash-spin 1.1s linear infinite; }
+
+html {
+  scroll-behavior: auto;
+  background: var(--color-canvas);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-canvas);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-violet);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-violet) 45%, transparent);
+  border-radius: 999px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-none-desktop, .cursor-none-desktop * {
+    cursor: none !important;
+  }
+}
+
+.glass-panel {
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.6) inset,
+    0 20px 60px -20px rgba(91, 61, 240, 0.25);
+}
+
+.glass-panel-strong {
+  background: var(--color-glass-strong);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.7) inset,
+    0 30px 80px -24px rgba(91, 61, 240, 0.32);
+}
+
+.text-gradient-aurora {
+  background: linear-gradient(100deg, var(--color-violet-deep), var(--color-violet) 35%, var(--color-cyan) 70%, var(--color-mint));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 3;
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-violet) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-violet) 8%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
