@@ -3,42 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio Book</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/book.css">
+    <title>Your Name — Product &amp; Visual Designer</title>
+    <meta name="description" content="Portfolio of Your Name, a product and visual designer crafting interfaces, brands and motion.">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
     <link rel="stylesheet" href="styles/typography.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body>
-    <div id="portfolio-book">
-        <div class="cover">
-            <a href="pages/cover.html" class="cover-link">Cover</a>
-        </div>
-        <div class="pages">
-            <div class="page" id="page-about">
-                <iframe src="pages/about.html" frameborder="0"></iframe>
-            </div>
-            <div class="page" id="page-works">
-                <iframe src="pages/works.html" frameborder="0"></iframe>
-            </div>
-            <div class="page" id="page-projects">
-                <iframe src="pages/projects.html" frameborder="0"></iframe>
-            </div>
-            <div class="page" id="page-contact">
-                <iframe src="pages/contact.html" frameborder="0"></iframe>
-            </div>
-            <div class="back-cover">
-                <iframe src="pages/back-cover.html" frameborder="0"></iframe>
-            </div>
-        </div>
-        <div class="bookmarks">
-            <button onclick="goToPage('page-about')">About</button>
-            <button onclick="goToPage('page-works')">Works</button>
-            <button onclick="goToPage('page-projects')">Projects</button>
-            <button onclick="goToPage('page-contact')">Contact</button>
-        </div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-count"><span id="preloader-number">0</span></div>
+        <div class="preloader-bar"><span id="preloader-fill"></span></div>
+        <div class="preloader-label">Your Name — Portfolio</div>
     </div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#hero">Skip to content</a>
+
+    <header class="site-nav" id="site-nav">
+        <div class="nav-progress" id="nav-progress"></div>
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo" data-magnetic>Your Name<span class="dot">.</span></a>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="#work" data-magnetic>Work</a>
+                <a href="#about" data-magnetic>About</a>
+                <a href="#capabilities" data-magnetic>Capabilities</a>
+                <a href="#contact" data-magnetic>Contact</a>
+            </nav>
+            <a href="#contact" class="nav-cta" data-magnetic>
+                <span>Let's talk</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="hero">
+            <div class="blob blob-a" aria-hidden="true"></div>
+            <div class="blob blob-b" aria-hidden="true"></div>
+            <div class="blob blob-c" aria-hidden="true"></div>
+
+            <p class="hero-eyebrow reveal-line"><span class="reveal-inner">Portfolio — 2026</span></p>
+
+            <h1 class="hero-title">
+                <span class="reveal-line"><span class="reveal-inner">Crafting</span></span>
+                <span class="reveal-line"><span class="reveal-inner">interfaces &amp;</span></span>
+                <span class="reveal-line"><span class="reveal-inner"><em>motion.</em></span></span>
+            </h1>
+
+            <p class="hero-role reveal-line">
+                <span class="reveal-inner">I'm a <span class="role-switch" id="role-switch">Product Designer</span></span>
+            </p>
+
+            <p class="hero-subtitle" data-reveal>
+                I design digital products, brand systems and the small, delightful motions
+                that make them feel alive — bridging visual craft with interaction detail.
+            </p>
+
+            <div class="hero-actions" data-reveal>
+                <a href="#work" class="btn btn-primary" data-magnetic>
+                    <span>View Work</span>
+                </a>
+                <a href="#contact" class="btn btn-ghost" data-magnetic>
+                    <span>Say Hello</span>
+                </a>
+            </div>
+
+            <a href="#about" class="scroll-cue" data-magnetic aria-label="Scroll to content">
+                <span class="scroll-cue-mouse"><span class="scroll-cue-wheel"></span></span>
+                <span class="scroll-cue-label">Scroll</span>
+            </a>
+        </section>
+
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Product Design</span><span>&bull;</span>
+                <span>Visual Design</span><span>&bull;</span>
+                <span>Motion &amp; Interaction</span><span>&bull;</span>
+                <span>Brand Identity</span><span>&bull;</span>
+                <span>UI / UX</span><span>&bull;</span>
+                <span>Prototyping</span><span>&bull;</span>
+                <span>Product Design</span><span>&bull;</span>
+                <span>Visual Design</span><span>&bull;</span>
+                <span>Motion &amp; Interaction</span><span>&bull;</span>
+                <span>Brand Identity</span><span>&bull;</span>
+                <span>UI / UX</span><span>&bull;</span>
+                <span>Prototyping</span><span>&bull;</span>
+            </div>
+        </div>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="about-media" data-reveal>
+                <div class="about-portrait">
+                    <span class="about-portrait-badge">Available for work</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <p class="eyebrow" data-reveal>About</p>
+                <h2 class="section-title" data-reveal>I design systems<br>that move.</h2>
+                <p class="about-bio" data-reveal>
+                    With a background spanning graphic design, UI/UX and front-end craft, I build
+                    portfolios, products and brands that feel considered in every pixel and every
+                    frame. I care about the gap between static design and the moment it comes alive
+                    on screen.
+                </p>
+
+                <ul class="skill-tags" data-reveal>
+                    <li>Product Design</li>
+                    <li>Visual Design</li>
+                    <li>Motion Design</li>
+                    <li>UI / UX</li>
+                    <li>Brand Identity</li>
+                    <li>Prototyping</li>
+                </ul>
+
+                <div class="stats" data-reveal>
+                    <div class="stat">
+                        <span class="stat-number" data-count="6">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Years experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="40">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Projects shipped</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="18">0</span>
+                        <span class="stat-label">Happy clients</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Design awards</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work -->
+        <section class="work" id="work">
+            <div class="section-heading">
+                <p class="eyebrow" data-reveal>Selected Work</p>
+                <h2 class="section-title" data-reveal>Featured projects</h2>
+            </div>
+
+            <div class="work-grid">
+                <!-- Replace .work-media background with a real <img src="../assets/images/project1.jpg"> when available -->
+                <a class="work-card" href="#" data-magnetic data-reveal>
+                    <div class="work-media work-media-a">
+                        <span class="work-index">01</span>
+                    </div>
+                    <div class="work-meta">
+                        <h3>Nova — Fintech App</h3>
+                        <p>Product design &middot; Mobile UI</p>
+                    </div>
+                </a>
+
+                <a class="work-card" href="#" data-magnetic data-reveal>
+                    <div class="work-media work-media-b">
+                        <span class="work-index">02</span>
+                    </div>
+                    <div class="work-meta">
+                        <h3>Halo — Brand System</h3>
+                        <p>Visual identity &middot; Art direction</p>
+                    </div>
+                </a>
+
+                <a class="work-card" href="#" data-magnetic data-reveal>
+                    <div class="work-media work-media-c">
+                        <span class="work-index">03</span>
+                    </div>
+                    <div class="work-meta">
+                        <h3>Drift — Motion Reel</h3>
+                        <p>Motion design &middot; Interaction</p>
+                    </div>
+                </a>
+
+                <a class="work-card" href="#" data-magnetic data-reveal>
+                    <div class="work-media work-media-d">
+                        <span class="work-index">04</span>
+                    </div>
+                    <div class="work-meta">
+                        <h3>Aster — Design System</h3>
+                        <p>UI / UX &middot; Component library</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Capabilities -->
+        <section class="capabilities" id="capabilities">
+            <div class="section-heading">
+                <p class="eyebrow" data-reveal>What I do</p>
+                <h2 class="section-title" data-reveal>Capabilities</h2>
+            </div>
+
+            <div class="capability-list">
+                <div class="capability-row" data-magnetic data-reveal>
+                    <span class="capability-index">01</span>
+                    <h3 class="capability-title">Product Design</h3>
+                    <p class="capability-desc">End-to-end product thinking, from flows to polished UI.</p>
+                    <span class="capability-arrow">&rarr;</span>
+                </div>
+                <div class="capability-row" data-magnetic data-reveal>
+                    <span class="capability-index">02</span>
+                    <h3 class="capability-title">Visual &amp; Brand Design</h3>
+                    <p class="capability-desc">Identity systems, typography and art direction with intent.</p>
+                    <span class="capability-arrow">&rarr;</span>
+                </div>
+                <div class="capability-row" data-magnetic data-reveal>
+                    <span class="capability-index">03</span>
+                    <h3 class="capability-title">Motion &amp; Interaction</h3>
+                    <p class="capability-desc">Micro-interactions and motion language that add clarity.</p>
+                    <span class="capability-arrow">&rarr;</span>
+                </div>
+                <div class="capability-row" data-magnetic data-reveal>
+                    <span class="capability-index">04</span>
+                    <h3 class="capability-title">Prototyping</h3>
+                    <p class="capability-desc">Fast, realistic prototypes that de-risk design decisions.</p>
+                    <span class="capability-arrow">&rarr;</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <p class="eyebrow" data-reveal>Contact</p>
+            <h2 class="contact-title" data-reveal>Let's build<br>something great.</h2>
+            <a class="contact-email" href="mailto:hello@yourname.com" data-magnetic data-reveal>
+                hello@yourname.com
+            </a>
+            <div class="social-row" data-reveal>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener" data-magnetic>LinkedIn</a>
+                <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener" data-magnetic>Instagram</a>
+                <a href="https://www.behance.net/yourprofile" target="_blank" rel="noopener" data-magnetic>Behance</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span>&copy; 2026 Your Name. All rights reserved.</span>
+        <button type="button" class="to-top" id="to-top" data-magnetic aria-label="Back to top">&uarr; Top</button>
+    </footer>
+
+    <script src="scripts/vendor/anime.min.js"></script>
     <script src="scripts/main.js"></script>
-    <script src="scripts/pageFlip.js"></script>
-    <script src="scripts/bookmarks.js"></script>
 </body>
 </html>
