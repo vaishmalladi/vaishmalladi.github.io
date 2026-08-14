@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import type { WorldId } from "../data/content";
 import { useGameStore } from "../store/gameStore";
 
-export function useWorldSection(id: WorldId | "hero" | "contact") {
+export function useWorldSection(id: WorldId | "home" | "contact") {
   const ref = useRef<HTMLElement | null>(null);
   const setActiveWorld = useGameStore((s) => s.setActiveWorld);
   const exploreWorld = useGameStore((s) => s.exploreWorld);
@@ -15,7 +15,7 @@ export function useWorldSection(id: WorldId | "hero" | "contact") {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-            if (id !== "hero" && id !== "contact") {
+            if (id !== "home" && id !== "contact") {
               setActiveWorld(id);
               exploreWorld(id);
             } else {

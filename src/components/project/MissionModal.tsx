@@ -22,6 +22,7 @@ export default function MissionModal() {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const project = PROJECTS.find((p) => p.id === activeProjectId) ?? null;
+  const chapterNumber = project ? PROJECTS.findIndex((p) => p.id === project.id) + 1 : 0;
 
   const handleScroll = () => {
     const el = containerRef.current;
@@ -68,11 +69,36 @@ export default function MissionModal() {
 
             <div ref={containerRef} onScroll={handleScroll} className="flex-1 overflow-y-auto px-6 py-10 sm:px-10">
               <span className={`inline-block rounded-full bg-gradient-to-r ${project.gradient} px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-white`}>
-                {project.world} · {project.year}
+                Chapter {String(chapterNumber).padStart(2, "0")} · {project.year}
               </span>
               <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl">{project.title}</h2>
               <p className="mt-2 text-[var(--color-ink-soft)]">{project.tagline}</p>
-              <p className="mt-1 font-mono text-xs text-[var(--color-ink-faint)]">Role: {project.role}</p>
+
+              <div className="glass-panel mt-6 grid grid-cols-2 gap-4 rounded-2xl p-5 sm:grid-cols-4">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink-faint)]">Difficulty</p>
+                  <p className="mt-1 text-sm">
+                    {"★".repeat(project.difficulty)}
+                    <span className="opacity-30">{"★".repeat(5 - project.difficulty)}</span>
+                  </p>
+                </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink-faint)]">Role</p>
+                  <p className="mt-1 text-sm font-medium">{project.role}</p>
+                </div>
+                <div className="col-span-2">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink-faint)]">Party</p>
+                  <p className="mt-1 text-sm font-medium">{project.party.join(", ")}</p>
+                </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink-faint)]">Est. Time</p>
+                  <p className="mt-1 text-sm font-medium">{project.estimatedMinutes} min</p>
+                </div>
+                <div className="col-span-3">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink-faint)]">Reward</p>
+                  <p className="mt-1 text-sm font-medium text-[var(--color-violet-deep)]">{project.reward}</p>
+                </div>
+              </div>
 
               <div className="mt-10 flex flex-col gap-10">
                 {STAGES.map((stage, i) => {

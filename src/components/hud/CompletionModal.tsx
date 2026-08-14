@@ -39,10 +39,10 @@ export default function CompletionModal() {
             <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.3em] text-[var(--color-violet-deep)]">
               Achievement Unlocked
             </p>
-            <h3 className="mt-2 font-display text-2xl font-bold text-gradient-aurora">Curious Explorer</h3>
+            <h3 className="mt-2 font-display text-2xl font-bold text-gradient-aurora">Game Complete</h3>
             <p className="mt-3 text-sm text-[var(--color-ink-soft)]">
-              You've explored every world in this experience — command center, control room, AI lab, mission
-              control, workshop, and creative studio. Thanks for playing through the journey.
+              You've cleared every chapter in the game — Enterprise, AI, and Growth. Thanks for playing all the
+              way through.
             </p>
             <button
               type="button"

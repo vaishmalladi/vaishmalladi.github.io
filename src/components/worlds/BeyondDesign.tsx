@@ -10,10 +10,11 @@ export default function BeyondDesign() {
     <section
       id="beyond"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-12 px-6 py-28"
+      className="island-backdrop relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-12 px-6 py-28"
+      style={{ "--island-accent-soft": "#E5FAF0" } as React.CSSProperties}
     >
       <SectionHeading
-        kicker="World 06 · Creative Studio"
+        kicker="Side Quest 🎪"
         title="Beyond Design"
         description="An interactive scrapbook of everything else — dance, community, and the hackathons that keep the craft playful."
       />

@@ -3,17 +3,14 @@ import Lenis from "lenis";
 import { setLenisInstance } from "./lib/smoothScroll";
 import AuroraBackground from "./components/background/AuroraBackground";
 import CustomCursor from "./components/cursor/CustomCursor";
-import IntroExperience from "./components/intro/IntroExperience";
-import HoloNav from "./components/nav/HoloNav";
-import XPBar from "./components/hud/XPBar";
+import BedroomIntro from "./components/intro/BedroomIntro";
+import Navbar from "./components/nav/Navbar";
 import AchievementToast from "./components/hud/AchievementToast";
 import CompletionModal from "./components/hud/CompletionModal";
 import MissionModal from "./components/project/MissionModal";
-import Hero from "./components/Hero";
-import CommandCenter from "./components/worlds/CommandCenter";
-import EnterprisePlatform from "./components/worlds/EnterprisePlatform";
-import AILab from "./components/worlds/AILab";
-import GrowthMission from "./components/worlds/GrowthMission";
+import Home from "./components/Home";
+import AboutMe from "./components/worlds/AboutMe";
+import Projects from "./components/worlds/Projects";
 import DesignWorkshop from "./components/worlds/DesignWorkshop";
 import BeyondDesign from "./components/worlds/BeyondDesign";
 import ContactPortal from "./components/ContactPortal";
@@ -42,19 +39,16 @@ function App() {
       <AuroraBackground />
       <div className="noise-overlay" />
       <CustomCursor />
-      <IntroExperience />
-      <XPBar />
-      <HoloNav />
+      <BedroomIntro />
+      <Navbar />
       <AchievementToast />
       <CompletionModal />
       <MissionModal />
 
       <main className="relative">
-        <Hero />
-        <CommandCenter />
-        <EnterprisePlatform />
-        <AILab />
-        <GrowthMission />
+        <Home />
+        <AboutMe />
+        <Projects />
         <DesignWorkshop />
         <BeyondDesign />
         <ContactPortal />

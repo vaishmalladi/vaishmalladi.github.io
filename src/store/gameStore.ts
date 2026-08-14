@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { ACHIEVEMENTS, WORLDS, type WorldId } from "../data/content";
+import { ACHIEVEMENTS, PROJECTS, type WorldId } from "../data/content";
 
 const XP_PER_WORLD = 150;
 const XP_PER_MISSION = 75;
@@ -15,7 +15,7 @@ interface AchievementToastData {
 
 interface GameState {
   introComplete: boolean;
-  activeWorld: WorldId | "hero" | "contact";
+  activeWorld: WorldId | "home" | "contact";
   exploredWorlds: WorldId[];
   missionsRead: string[];
   unlockedAchievements: string[];
@@ -24,7 +24,7 @@ interface GameState {
   activeProjectId: string | null;
 
   completeIntro: () => void;
-  setActiveWorld: (id: WorldId | "hero" | "contact") => void;
+  setActiveWorld: (id: WorldId | "home" | "contact") => void;
   exploreWorld: (id: WorldId) => void;
   completeMission: (projectId: string) => void;
   dismissToast: () => void;
@@ -37,7 +37,7 @@ export const useGameStore = create<GameState>()(
   persist(
     (set, get) => ({
       introComplete: false,
-      activeWorld: "hero",
+      activeWorld: "home",
       exploredWorlds: [],
       missionsRead: [],
       unlockedAchievements: [],
@@ -60,17 +60,18 @@ export const useGameStore = create<GameState>()(
         if (exploredWorlds.includes(id)) return;
         set({ exploredWorlds: [...exploredWorlds, id], xp: get().xp + XP_PER_WORLD });
         get().unlockAchievement(id);
-
-        if (get().exploredWorlds.length === WORLDS.length) {
-          get().unlockAchievement("explorer");
-        }
       },
 
       completeMission: (projectId) => {
         const { missionsRead } = get();
         if (missionsRead.includes(projectId)) return;
-        set({ missionsRead: [...missionsRead, projectId], xp: get().xp + XP_PER_MISSION });
+        const nextMissionsRead = [...missionsRead, projectId];
+        set({ missionsRead: nextMissionsRead, xp: get().xp + XP_PER_MISSION });
         get().unlockAchievement("mission");
+
+        if (nextMissionsRead.length === PROJECTS.length) {
+          get().unlockAchievement("explorer");
+        }
       },
 
       unlockAchievement: (id) => {
@@ -106,10 +107,6 @@ export function levelFromXp(xp: number): { level: number; progress: number; xpIn
   const xpIntoLevel = xp % XP_PER_LEVEL;
   const progress = xpIntoLevel / XP_PER_LEVEL;
   return { level, progress, xpIntoLevel };
-}
-
-export function completionPercent(exploredWorlds: WorldId[]): number {
-  return Math.round((exploredWorlds.length / WORLDS.length) * 100);
 }
 
 export { XP_PER_LEVEL };

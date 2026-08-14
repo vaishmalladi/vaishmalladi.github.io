@@ -1,27 +1,90 @@
 export type WorldId =
   | "about"
+  | "projects"
   | "enterprise"
   | "ai"
   | "growth"
   | "design-systems"
   | "beyond";
 
+export interface IslandPalette {
+  accent: string;
+  accentSoft: string;
+  accentDeep: string;
+}
+
 export interface WorldDef {
   id: WorldId;
   index: number;
   name: string;
   shortLabel: string;
+  levelLabel: string;
   theme: string;
-  icon: string;
+  emoji: string;
+  palette: IslandPalette;
 }
 
 export const WORLDS: WorldDef[] = [
-  { id: "about", index: 1, name: "Command Center", shortLabel: "About", theme: "Futuristic HQ", icon: "◈" },
-  { id: "enterprise", index: 2, name: "Enterprise Platform", shortLabel: "Enterprise", theme: "Control Room", icon: "▣" },
-  { id: "ai", index: 3, name: "AI Experiences", shortLabel: "AI Lab", theme: "Hologram Lab", icon: "✦" },
-  { id: "growth", index: 4, name: "Growth", shortLabel: "Growth", theme: "Mission Control", icon: "▲" },
-  { id: "design-systems", index: 5, name: "Design Systems", shortLabel: "Systems", theme: "Tech Workshop", icon: "◆" },
-  { id: "beyond", index: 6, name: "Beyond Design", shortLabel: "Beyond", theme: "Creative Studio", icon: "✺" },
+  {
+    id: "about",
+    index: 1,
+    name: "Introduction",
+    shortLabel: "Intro",
+    levelLabel: "Level 01",
+    theme: "The First Island",
+    emoji: "🏝️",
+    palette: { accent: "#7C6CFF", accentSoft: "#EFEBFF", accentDeep: "#5B3DF0" },
+  },
+  {
+    id: "enterprise",
+    index: 2,
+    name: "Enterprise",
+    shortLabel: "Enterprise",
+    levelLabel: "Level 02",
+    theme: "The Citadel Island",
+    emoji: "🏛️",
+    palette: { accent: "#4C6FFF", accentSoft: "#EAF0FF", accentDeep: "#2F4FE0" },
+  },
+  {
+    id: "ai",
+    index: 3,
+    name: "AI",
+    shortLabel: "AI",
+    levelLabel: "Level 03",
+    theme: "The Hologram Island",
+    emoji: "🔮",
+    palette: { accent: "#B45CFF", accentSoft: "#F4E9FF", accentDeep: "#8E2FE0" },
+  },
+  {
+    id: "growth",
+    index: 4,
+    name: "Growth",
+    shortLabel: "Growth",
+    levelLabel: "Level 04",
+    theme: "The Summit Island",
+    emoji: "⛰️",
+    palette: { accent: "#FF9C4A", accentSoft: "#FFF1E1", accentDeep: "#E67A1F" },
+  },
+  {
+    id: "design-systems",
+    index: 5,
+    name: "Systems",
+    shortLabel: "Systems",
+    levelLabel: "Level 05",
+    theme: "The Workshop Island",
+    emoji: "🏗️",
+    palette: { accent: "#22C7C0", accentSoft: "#E4FBF9", accentDeep: "#0E9E98" },
+  },
+  {
+    id: "beyond",
+    index: 6,
+    name: "Community",
+    shortLabel: "Beyond",
+    levelLabel: "Level 06",
+    theme: "The Carnival Island",
+    emoji: "🎪",
+    palette: { accent: "#3ECF8E", accentSoft: "#E5FAF0", accentDeep: "#1FA36A" },
+  },
 ];
 
 export interface StatItem {
@@ -59,10 +122,10 @@ export interface TimelineEntry {
 }
 
 export const TIMELINE: TimelineEntry[] = [
-  { year: "2019", title: "Entered the Enterprise Realm", description: "Began designing complex B2B systems, learning to balance power with simplicity." },
+  { year: "2019", title: "Landed on the Enterprise Island", description: "Began designing complex B2B systems, learning to balance power with simplicity." },
   { year: "2021", title: "Unlocked Systems Thinking", description: "Built and scaled design systems used across multiple product lines." },
-  { year: "2023", title: "Joined the AI Frontier", description: "Started designing AI-native experiences — copilots, agents, and recommendations." },
-  { year: "2025", title: "Leveled Up to Strategic Design", description: "Now shaping platform-wide experiences that influence thousands of seats." },
+  { year: "2023", title: "Discovered the AI Frontier", description: "Started designing AI-native experiences — copilots, agents, and recommendations." },
+  { year: "2025", title: "Reached the Summit", description: "Now shaping platform-wide experiences that influence thousands of seats." },
 ];
 
 export interface AchievementDef {
@@ -73,15 +136,13 @@ export interface AchievementDef {
 }
 
 export const ACHIEVEMENTS: Record<string, AchievementDef> = {
-  spawn: { id: "spawn", title: "Signal Received", description: "Entered the interactive world.", icon: "📡" },
-  about: { id: "about", title: "Know Thyself", description: "Explored the Command Center.", icon: "🧭" },
-  enterprise: { id: "enterprise", title: "Control Room Access", description: "Explored the Enterprise Platform.", icon: "🛰️" },
-  ai: { id: "ai", title: "Neural Link Established", description: "Explored the AI Experiences lab.", icon: "🧠" },
-  growth: { id: "growth", title: "Mission Control", description: "Explored the Growth dashboard.", icon: "📈" },
-  "design-systems": { id: "design-systems", title: "System Architect", description: "Explored the Design Systems workshop.", icon: "🧩" },
-  beyond: { id: "beyond", title: "Off Duty", description: "Explored Beyond Design.", icon: "🎬" },
-  mission: { id: "mission", title: "Debrief Complete", description: "Finished a full project mission.", icon: "✅" },
-  explorer: { id: "explorer", title: "Curious Explorer", description: "Explored every world in the experience.", icon: "🏆" },
+  spawn: { id: "spawn", title: "Game Start", description: "Pressed start and entered the game.", icon: "🕹️" },
+  about: { id: "about", title: "Character Select", description: "Checked out the About Me profile.", icon: "🧑‍🚀" },
+  projects: { id: "projects", title: "Chapter Select", description: "Opened the chapter select screen.", icon: "📖" },
+  "design-systems": { id: "design-systems", title: "System Builder", description: "Explored the Design Systems workshop.", icon: "🏗️" },
+  beyond: { id: "beyond", title: "Side Quest", description: "Explored the Beyond Design bonus level.", icon: "🎪" },
+  mission: { id: "mission", title: "Chapter Cleared", description: "Finished reading a full chapter.", icon: "✅" },
+  explorer: { id: "explorer", title: "Game Complete", description: "Cleared every chapter in the game.", icon: "🏆" },
 };
 
 export interface ProjectMission {
@@ -90,6 +151,10 @@ export interface ProjectMission {
   title: string;
   tagline: string;
   role: string;
+  party: string[];
+  difficulty: number;
+  estimatedMinutes: number;
+  reward: string;
   year: string;
   tags: string[];
   gradient: string;
@@ -110,6 +175,10 @@ export const PROJECTS: ProjectMission[] = [
     title: "Multi Tenant Management",
     tagline: "One control surface for every tenant, at any scale.",
     role: "Lead Product Designer",
+    party: ["Product Manager", "Engineering Lead", "Research"],
+    difficulty: 4,
+    estimatedMinutes: 3,
+    reward: "-42% time to complete common admin tasks",
     year: "2023",
     tags: ["Enterprise", "IA", "Admin UX"],
     gradient: "from-violet-500 via-indigo-500 to-cyan-400",
@@ -132,6 +201,10 @@ export const PROJECTS: ProjectMission[] = [
     title: "Copilot Security",
     tagline: "Making AI governance legible for security teams.",
     role: "Lead Product Designer",
+    party: ["Security Architect", "Compliance", "Engineering"],
+    difficulty: 5,
+    estimatedMinutes: 4,
+    reward: "Unlocked AI rollout in blocked security-sensitive orgs",
     year: "2024",
     tags: ["AI Governance", "Security", "Enterprise"],
     gradient: "from-indigo-500 via-violet-500 to-fuchsia-400",
@@ -154,6 +227,10 @@ export const PROJECTS: ProjectMission[] = [
     title: "License Requests",
     tagline: "Turning a support ticket into a self-serve flow.",
     role: "Product Designer",
+    party: ["IT Admin", "Support Lead"],
+    difficulty: 2,
+    estimatedMinutes: 2,
+    reward: "-68% average time-to-access",
     year: "2022",
     tags: ["Workflow", "Self-serve", "Enterprise"],
     gradient: "from-cyan-400 via-sky-500 to-violet-500",
@@ -176,6 +253,10 @@ export const PROJECTS: ProjectMission[] = [
     title: "Organizational Prompts",
     tagline: "Shared prompt libraries for entire organizations.",
     role: "Lead Product Designer",
+    party: ["Data Science", "Power Users", "Engineering"],
+    difficulty: 3,
+    estimatedMinutes: 3,
+    reward: "Thousands of prompts shared org-wide in one quarter",
     year: "2024",
     tags: ["AI", "Knowledge Sharing", "Enterprise"],
     gradient: "from-fuchsia-400 via-violet-500 to-indigo-500",
@@ -198,6 +279,10 @@ export const PROJECTS: ProjectMission[] = [
     title: "Iris Recommendations",
     tagline: "Contextual AI recommendations that feel earned, not intrusive.",
     role: "Product Designer",
+    party: ["Data Science", "Research"],
+    difficulty: 3,
+    estimatedMinutes: 3,
+    reward: "Higher acceptance rate than the previous model",
     year: "2023",
     tags: ["AI", "Recommendations", "Personalization"],
     gradient: "from-violet-500 via-cyan-400 to-emerald-400",
@@ -220,9 +305,13 @@ export const PROJECTS: ProjectMission[] = [
     title: "Admin Agents",
     tagline: "Autonomous agents that handle admin busywork.",
     role: "Lead Product Designer",
+    party: ["Engineering", "Trust & Safety", "Pilot Admins"],
+    difficulty: 5,
+    estimatedMinutes: 4,
+    reward: "High trust scores in post-pilot survey",
     year: "2025",
     tags: ["AI Agents", "Automation", "Admin UX"],
-    gradient: "from-emerald-400 via-cyan-400 to-violet-500",
+    gradient: "from-emerald-300 via-emerald-400 to-cyan-400",
     brief: "Design agentic experiences that let admins delegate repetitive configuration tasks safely.",
     challenge: "Admins spent hours on repetitive, rule-based tasks that were ideal candidates for automation — but needed to trust the agent first.",
     research: "Studied prior automation failures to identify what eroded admin trust in autonomous systems.",
@@ -242,6 +331,10 @@ export const PROJECTS: ProjectMission[] = [
     title: "Sales Advisor",
     tagline: "An AI co-pilot for enterprise sales motions.",
     role: "Lead Product Designer",
+    party: ["Sales Ops", "Data Science", "Field Sellers"],
+    difficulty: 4,
+    estimatedMinutes: 4,
+    reward: "Measurable lift in deal velocity",
     year: "2023",
     tags: ["Growth", "AI", "Sales"],
     gradient: "from-amber-400 via-orange-400 to-fuchsia-400",
@@ -264,6 +357,10 @@ export const PROJECTS: ProjectMission[] = [
     title: "Renewals",
     tagline: "Turning renewal risk into a proactive, guided motion.",
     role: "Product Designer",
+    party: ["Account Teams", "Data Science"],
+    difficulty: 3,
+    estimatedMinutes: 3,
+    reward: "Earlier at-risk detection window",
     year: "2022",
     tags: ["Growth", "Retention", "Dashboard"],
     gradient: "from-orange-400 via-amber-400 to-emerald-400",
@@ -286,6 +383,10 @@ export const PROJECTS: ProjectMission[] = [
     title: "Opportunities",
     tagline: "Surfacing the growth opportunities hiding in plain sight.",
     role: "Product Designer",
+    party: ["Data Science", "Partner Teams"],
+    difficulty: 3,
+    estimatedMinutes: 3,
+    reward: "Meaningful increase in expansion pipeline",
     year: "2022",
     tags: ["Growth", "Analytics", "Sales"],
     gradient: "from-emerald-300 via-emerald-400 to-cyan-400",
@@ -337,12 +438,3 @@ export const BEYOND_ITEMS: BeyondItem[] = [
   { id: "hackathons", title: "Hackathons", description: "Multiple hackathon wins turning wild ideas into working prototypes overnight.", emoji: "⚡", rotation: -3 },
   { id: "mentorship", title: "Mentorship", description: "Mentoring early-career designers on craft, systems thinking, and storytelling.", emoji: "🌱", rotation: 5 },
 ];
-
-export const NAV_LABEL_MAP: Record<WorldId, string> = {
-  about: "About",
-  enterprise: "Enterprise",
-  ai: "AI Lab",
-  growth: "Growth",
-  "design-systems": "Systems",
-  beyond: "Beyond",
-};
