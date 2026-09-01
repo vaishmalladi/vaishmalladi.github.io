@@ -9,6 +9,8 @@ interface MagneticButtonProps {
   strength?: number;
   as?: "button" | "a";
   href?: string;
+  target?: string;
+  rel?: string;
 }
 
 export default function MagneticButton({
@@ -18,6 +20,8 @@ export default function MagneticButton({
   strength = 0.35,
   as = "button",
   href,
+  target,
+  rel,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement | HTMLAnchorElement | null>(null);
   const x = useMotionValue(0);
@@ -47,6 +51,8 @@ export default function MagneticButton({
       // @ts-expect-error -- ref type differs between button/anchor
       ref={ref}
       href={as === "a" ? href : undefined}
+      target={as === "a" ? target : undefined}
+      rel={as === "a" ? rel : undefined}
       onClick={onClick}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}

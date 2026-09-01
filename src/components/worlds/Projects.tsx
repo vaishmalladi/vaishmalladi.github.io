@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import { useWorldSection } from "../../hooks/useWorldSection";
 import { PROJECTS } from "../../data/content";
-import SectionHeading from "../ui/SectionHeading";
 import ChapterCard from "../project/ChapterCard";
 
 export default function Projects() {
@@ -10,17 +10,45 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-12 px-6 py-28"
+      className="relative isolate min-h-screen w-full overflow-hidden bg-[var(--color-canvas)] px-5 py-28 text-[var(--color-ink)] sm:px-8 lg:px-12"
     >
-      <SectionHeading
-        kicker="Chapter Select"
-        title="Projects"
-        description="Nine chapters from six years of enterprise platforms, AI experiences, and growth systems. Pick one to begin."
-      />
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {PROJECTS.map((project, i) => (
-          <ChapterCard key={project.id} project={project} chapterNumber={i + 1} />
-        ))}
+      <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(color-mix(in_srgb,var(--color-ink)_3.5%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--color-ink)_3.5%,transparent)_1px,transparent_1px)] [background-size:48px_48px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-cyan)] to-transparent shadow-[0_0_20px_var(--color-cyan)]" />
+
+      <div className="relative mx-auto max-w-[1400px]">
+        <header className="mb-10 flex flex-col justify-between gap-6 border-b border-[var(--color-hairline)]/12 pb-8 md:flex-row md:items-end">
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-pixel text-[9px] uppercase tracking-[0.22em] text-[var(--color-cyan)]"
+            >
+              Microsoft // Chapter select
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-4 font-display text-[clamp(2.6rem,7vw,6.5rem)] font-black leading-[0.85] tracking-normal"
+            >
+              SELECT A <span className="text-[var(--color-violet)]">MISSION</span>
+            </motion.h2>
+          </div>
+          <div className="max-w-md md:text-right">
+            <p className="font-mono text-sm leading-6 text-[var(--color-ink)]/75">
+              Stories from my time at Microsoft — enterprise platforms, AI experiences, and design systems.
+              Every chapter opens into the decisions behind the final design.
+            </p>
+            <p className="mt-3 font-pixel text-[10px] text-[var(--color-gold)]">{PROJECTS.length} CHAPTERS // MICROSOFT</p>
+          </div>
+        </header>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((project, index) => (
+            <ChapterCard key={project.id} project={project} chapterNumber={index + 1} />
+          ))}
+        </div>
       </div>
     </section>
   );

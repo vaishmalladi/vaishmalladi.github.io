@@ -13,14 +13,22 @@ function pointFor(index: number, total: number, radius: number, value: number) {
 }
 
 export default function SkillRadar({ axes, size = 280 }: SkillRadarProps) {
-  const radius = size / 2 - 36;
+  const radius = size / 2 - 64;
   const center = size / 2;
   const points = axes.map((axis, i) => pointFor(i, axes.length, radius, axis.value));
   const path = points.map(([x, y]) => `${center + x},${center + y}`).join(" ");
   const rings = [0.25, 0.5, 0.75, 1];
+  const summary = axes.map((axis) => `${axis.label} ${axis.value} out of 100`).join(", ");
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="mx-auto">
+    <svg
+      width={size}
+      height={size}
+      viewBox={`0 0 ${size} ${size}`}
+      className="mx-auto overflow-visible"
+      role="img"
+      aria-label={`Skill radar chart: ${summary}`}
+    >
       {rings.map((r) => (
         <circle
           key={r}
@@ -66,8 +74,8 @@ export default function SkillRadar({ axes, size = 280 }: SkillRadarProps) {
             y={center + y}
             textAnchor="middle"
             dominantBaseline="middle"
-            fontSize={10.5}
-            fill="var(--color-ink-soft)"
+            fontSize={11}
+            fill="var(--color-ink)"
             className="font-sans"
           >
             {axis.label}

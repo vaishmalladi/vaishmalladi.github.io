@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useWorldSection } from "../../hooks/useWorldSection";
-import { PROFILE_STATS, SKILL_RADAR, TIMELINE, ACHIEVEMENTS } from "../../data/content";
+import { PROFILE_STATS, SKILL_RADAR, SKILL_GROUPS, TIMELINE, ACHIEVEMENTS } from "../../data/content";
 import { useGameStore, levelFromXp } from "../../store/gameStore";
 import SectionHeading from "../ui/SectionHeading";
 import SkillRadar from "../ui/SkillRadar";
@@ -22,13 +22,13 @@ export default function AboutMe() {
       <SectionHeading
         kicker="Character Profile"
         title="About Me"
-        description="XP earned, achievements unlocked, and the skills behind six years of shipping enterprise and AI products."
+        description="XP earned, achievements unlocked, and the skills behind shipping enterprise and AI products."
       />
 
       <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
         <GlassPanel strong className="flex flex-col gap-8 p-8">
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--color-violet)] to-[var(--color-cyan)] font-display text-2xl font-bold text-white">
+            <div className="flex h-16 w-16 items-center justify-center border border-[var(--color-hairline)]/20 bg-gradient-to-br from-[var(--color-violet)] to-[var(--color-cyan)] font-pixel text-sm font-bold text-white">
               VM
             </div>
             <div>
@@ -39,14 +39,14 @@ export default function AboutMe() {
 
           <div>
             <div className="mb-2 flex items-baseline justify-between">
-              <p className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-faint)]">
+              <p className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-soft)]">
                 XP Earned
               </p>
               <span className="font-display text-sm font-bold text-[var(--color-violet-deep)]">Level {level}</span>
             </div>
-            <div className="h-3 w-full overflow-hidden rounded-full bg-black/10">
+            <div className="h-3 w-full overflow-hidden border border-[var(--color-hairline)]/10 bg-[var(--color-veil)]/[0.04]">
               <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-[var(--color-violet)] via-[var(--color-cyan)] to-[var(--color-mint,#4fe0b8)]"
+                className="h-full bg-gradient-to-r from-[var(--color-violet)] via-[var(--color-cyan)] to-[var(--color-mint,#4fe0b8)]"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress * 100}%` }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -55,7 +55,7 @@ export default function AboutMe() {
           </div>
 
           <div>
-            <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-faint)]">
+            <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-soft)]">
               Achievements
             </p>
             <div className="flex flex-wrap gap-2">
@@ -67,8 +67,8 @@ export default function AboutMe() {
                     title={unlocked ? ach.description : "Keep exploring to unlock"}
                     animate={unlocked ? { y: [0, -4, 0] } : {}}
                     transition={{ repeat: Infinity, duration: 2.4, delay: (i % 5) * 0.3 }}
-                    className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium ${
-                      unlocked ? "glass-panel text-[var(--color-ink)]" : "bg-black/5 text-[var(--color-ink-faint)] opacity-50 grayscale"
+                    className={`flex items-center gap-2 border px-3 py-1.5 text-xs font-medium ${
+                      unlocked ? "glass-panel border-[var(--color-hairline)]/15 text-[var(--color-ink)]" : "border-[var(--color-hairline)]/[0.06] bg-[var(--color-veil)]/[0.02] text-[var(--color-ink-faint)] opacity-50 grayscale"
                     }`}
                   >
                     <span>{ach.icon}</span>
@@ -80,17 +80,17 @@ export default function AboutMe() {
           </div>
 
           <div>
-            <p className="mb-2 font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-faint)]">
+            <p className="mb-2 font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-soft)]">
               Player Stats
             </p>
             <div className="grid grid-cols-3 gap-3 text-xs">
               {PROFILE_STATS.map((stat) => (
-                <div key={stat.label} className="rounded-xl bg-white/40 p-2.5 text-center">
+                <div key={stat.label} className="border border-[var(--color-hairline)]/10 bg-[var(--color-veil)]/[0.04] p-3 text-center">
                   <p className="font-display text-base font-bold text-[var(--color-violet-deep)]">
                     {stat.value}
                     {stat.suffix}
                   </p>
-                  <p className="mt-0.5 text-[10px] leading-tight text-[var(--color-ink-faint)]">{stat.label}</p>
+                  <p className="mt-1 text-[10px] leading-tight text-[var(--color-ink)]/65">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -110,6 +110,29 @@ export default function AboutMe() {
           Journey Timeline
         </p>
         <Timeline entries={TIMELINE} />
+      </GlassPanel>
+
+      <GlassPanel className="p-8">
+        <p className="mb-6 font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-faint)]">
+          Skills
+        </p>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {SKILL_GROUPS.map((group) => (
+            <div key={group.label}>
+              <p className="font-display text-sm font-bold text-[var(--color-violet-deep)]">{group.label}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="border border-[var(--color-hairline)]/15 bg-[var(--color-veil)]/[0.04] px-3 py-1.5 text-xs text-[var(--color-ink)]/80"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </GlassPanel>
     </section>
   );

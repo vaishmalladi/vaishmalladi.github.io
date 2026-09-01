@@ -2,26 +2,52 @@
 
 @theme {
   --font-display: "Space Grotesk", "Inter", sans-serif;
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --font-pixel: "Press Start 2P", "JetBrains Mono", monospace;
 
-  --color-canvas: #f8faff;
-  --color-canvas-deep: #eef2ff;
-  --color-ink: #14131f;
-  --color-ink-soft: #55536e;
-  --color-ink-faint: #8785a3;
+  --color-canvas: color-mix(in srgb, #f2ede0 82%, white 18%);
+  --color-canvas-deep: color-mix(in srgb, #f2ede0 88%, #4a2e27 12%);
+  --color-surface: color-mix(in srgb, #f2ede0 30%, white 70%);
+  --color-surface-2: color-mix(in srgb, #f2ede0 20%, white 80%);
+  --color-ink: #362017;
+  --color-ink-soft: #4a2e27;
+  --color-ink-faint: color-mix(in srgb, #4a2e27 55%, #f2ede0);
+  --color-hairline: #231815;
+  --color-veil: #231815;
+  --color-ink-on-accent: #f2ede0;
 
-  --color-glass: rgba(255, 255, 255, 0.55);
-  --color-glass-strong: rgba(255, 255, 255, 0.78);
-  --color-glass-border: rgba(255, 255, 255, 0.9);
+  --color-glass: rgba(250, 248, 244, 0.75);
+  --color-glass-strong: rgba(252, 251, 248, 0.92);
+  --color-glass-border: rgba(35, 24, 21, 0.12);
 
-  --color-violet: #7c6cff;
-  --color-violet-deep: #5b3df0;
-  --color-cyan: #2fd6e8;
-  --color-coral: #ff8a65;
-  --color-gold: #ffc65c;
-  --color-mint: #4fe0b8;
+  --color-violet: #4d0e12;
+  --color-violet-deep: #4d0e12;
+  --color-cyan: color-mix(in srgb, #a5bcd6 30%, #231815 70%);
+  --color-coral: #4a2e27;
+  --color-gold: #4a2e27;
+  --color-mint: color-mix(in srgb, #4a2e27 60%, #4d0e12 40%);
+  --color-heading: var(--color-violet);
+  --color-heading-alt: #6b7a3a;
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    color: var(--color-heading);
+  }
+}
+
+/* Sitewide keyboard-focus safety net: guarantees a visible focus ring on every
+   interactive element even if a component forgets an explicit focus-visible class. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
 }
 
 @keyframes float {
@@ -99,6 +125,8 @@
 html {
   scroll-behavior: auto;
   background: var(--color-canvas);
+  overflow-x: clip;
+  scrollbar-color: color-mix(in srgb, var(--color-cyan) 58%, var(--color-canvas-deep)) var(--color-canvas);
 }
 
 body {
@@ -118,10 +146,10 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--color-canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-violet) 45%, transparent);
+  background: color-mix(in srgb, var(--color-cyan) 58%, var(--color-canvas-deep));
   border-radius: 999px;
 }
 
@@ -137,8 +165,8 @@ body {
   backdrop-filter: blur(22px) saturate(160%);
   -webkit-backdrop-filter: blur(22px) saturate(160%);
   box-shadow:
-    0 1px 0 0 rgba(255, 255, 255, 0.6) inset,
-    0 20px 60px -20px rgba(91, 61, 240, 0.25);
+    0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+    0 20px 60px -20px rgba(0, 0, 0, 0.65);
 }
 
 .glass-panel-strong {
@@ -147,8 +175,8 @@ body {
   backdrop-filter: blur(28px) saturate(170%);
   -webkit-backdrop-filter: blur(28px) saturate(170%);
   box-shadow:
-    0 1px 0 0 rgba(255, 255, 255, 0.7) inset,
-    0 30px 80px -24px rgba(91, 61, 240, 0.32);
+    0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
+    0 30px 80px -24px rgba(0, 0, 0, 0.72);
 }
 
 .text-gradient-aurora {
@@ -186,6 +214,8 @@ body {
   inset: -10% -5%;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(60% 55% at 50% 8%, var(--island-accent-soft, transparent), transparent 70%);
-  opacity: 0.9;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--island-accent, #00f0ff) 8%, transparent), transparent 42%),
+    linear-gradient(90deg, transparent 49.9%, rgba(255, 255, 255, 0.035) 50%, transparent 50.1%);
+  opacity: 1;
 }

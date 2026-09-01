@@ -22,8 +22,10 @@ interface GameState {
   xp: number;
   toastQueue: AchievementToastData[];
   activeProjectId: string | null;
+  activeBehanceId: string | null;
 
   completeIntro: () => void;
+  replayIntro: () => void;
   setActiveWorld: (id: WorldId | "home" | "contact") => void;
   exploreWorld: (id: WorldId) => void;
   completeMission: (projectId: string) => void;
@@ -31,6 +33,8 @@ interface GameState {
   unlockAchievement: (id: keyof typeof ACHIEVEMENTS) => void;
   openProject: (id: string) => void;
   closeProject: () => void;
+  openBehanceProject: (id: string) => void;
+  closeBehanceProject: () => void;
 }
 
 export const useGameStore = create<GameState>()(
@@ -44,14 +48,19 @@ export const useGameStore = create<GameState>()(
       xp: 0,
       toastQueue: [],
       activeProjectId: null,
+      activeBehanceId: null,
 
       openProject: (id) => set({ activeProjectId: id }),
       closeProject: () => set({ activeProjectId: null }),
+      openBehanceProject: (id) => set({ activeBehanceId: id }),
+      closeBehanceProject: () => set({ activeBehanceId: null }),
 
       completeIntro: () => {
         set({ introComplete: true });
         get().unlockAchievement("spawn");
       },
+
+      replayIntro: () => set({ introComplete: false, activeWorld: "home", activeProjectId: null }),
 
       setActiveWorld: (id) => set({ activeWorld: id }),
 
@@ -91,8 +100,13 @@ export const useGameStore = create<GameState>()(
     }),
     {
       name: "portfolio-game-state",
+      version: 1,
+      migrate: (persistedState) => {
+        const migratedState = { ...(persistedState as Partial<GameState>) };
+        delete migratedState.introComplete;
+        return migratedState as GameState;
+      },
       partialize: (state) => ({
-        introComplete: state.introComplete,
         exploredWorlds: state.exploredWorlds,
         missionsRead: state.missionsRead,
         unlockedAchievements: state.unlockedAchievements,

@@ -20,21 +20,23 @@ export default function ContactPortal() {
       <div className="flex flex-wrap items-center justify-center gap-4">
         <MagneticButton
           as="a"
-          href="mailto:hello@example.com"
-          className="rounded-full bg-[var(--color-violet-deep)] px-7 py-3.5 font-display text-sm font-semibold text-white"
+          href="mailto:vaishmalladi@gmail.com"
+          className="pixel-corners border-2 border-[var(--color-ink)] bg-[var(--color-violet-deep)] px-7 py-3.5 font-pixel text-[9px] text-white shadow-[4px_4px_0_var(--color-cyan)]"
         >
           Say Hello
         </MagneticButton>
         <MagneticButton
           as="a"
-          href="https://www.linkedin.com"
-          className="glass-panel rounded-full px-7 py-3.5 font-display text-sm font-semibold text-[var(--color-violet-deep)]"
+          href="https://www.linkedin.com/in/vaishnavi-malladi-b2b413174/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="glass-panel border border-[var(--color-hairline)]/15 px-7 py-3.5 font-pixel text-[9px] text-[var(--color-cyan)]"
         >
           LinkedIn
         </MagneticButton>
       </div>
       <p className="mt-10 font-mono text-[10px] text-[var(--color-ink-faint)]">
-        © {new Date().getFullYear()} Vaishnavi Malladi — built with React, Framer Motion & Three.js
+        © {new Date().getFullYear()} Vaishnavi Malladi — built with React & Framer Motion
       </p>
     </section>
   );

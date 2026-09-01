@@ -15,7 +15,7 @@ export default function ComponentPlayground() {
             data-cursor="button"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="rounded-full bg-[var(--color-violet-deep)] px-5 py-2.5 text-sm font-semibold text-white"
+            className="pixel-corners bg-[var(--color-violet-deep)] px-5 py-2.5 text-sm font-semibold text-white"
           >
             Primary
           </motion.button>
@@ -23,16 +23,16 @@ export default function ComponentPlayground() {
             data-cursor="button"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="glass-panel rounded-full px-5 py-2.5 text-sm font-semibold text-[var(--color-violet-deep)]"
+            className="glass-panel border border-[var(--color-hairline)]/15 px-5 py-2.5 text-sm font-semibold text-[var(--color-violet-deep)]"
           >
             Secondary
           </motion.button>
           <span className="h-9 w-9 animate-spin-slow rounded-full border-2 border-[var(--color-violet)]/25 border-t-[var(--color-violet)]" />
         </div>
 
-        <div className="h-2.5 w-full overflow-hidden rounded-full bg-black/10">
+        <div className="h-2.5 w-full overflow-hidden border border-[var(--color-hairline)]/10 bg-[var(--color-veil)]/[0.04]">
           <motion.div
-            className="h-full rounded-full bg-gradient-to-r from-[var(--color-violet)] to-[var(--color-cyan)]"
+            className="h-full bg-gradient-to-r from-[var(--color-violet)] to-[var(--color-cyan)]"
             initial={{ width: "0%" }}
             whileInView={{ width: "72%" }}
             viewport={{ once: true }}
@@ -47,7 +47,7 @@ export default function ComponentPlayground() {
               initial={{ opacity: 0, y: 16, rotate: -2 }}
               whileInView={{ opacity: 1, y: 0, rotate: 0 }}
               viewport={{ once: true }}
-              className="glass-panel rounded-2xl p-4"
+              className="glass-panel border border-[var(--color-hairline)]/10 p-4"
             >
               <p className="text-xs font-semibold text-[var(--color-ink)]">{label}</p>
               <p className="text-[11px] text-[var(--color-ink-faint)]">Morphs into place on scroll</p>
@@ -62,10 +62,10 @@ export default function ComponentPlayground() {
         </span>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {DESIGN_TOKENS.map((token) => (
-            <div key={token.name} className="flex items-center gap-2 rounded-xl bg-white/40 p-2.5">
+            <div key={token.name} className="flex items-center gap-2 border border-[var(--color-hairline)]/10 bg-[var(--color-veil)]/[0.04] p-2.5">
               {token.swatch && (
                 <span
-                  className="h-6 w-6 flex-none rounded-full border border-white/70 shadow-sm"
+                  className="h-6 w-6 flex-none rounded-full border border-[var(--color-hairline)]/70 shadow-sm"
                   style={{ background: token.swatch }}
                 />
               )}

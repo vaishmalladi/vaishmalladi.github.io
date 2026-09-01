@@ -8,9 +8,11 @@ import Navbar from "./components/nav/Navbar";
 import AchievementToast from "./components/hud/AchievementToast";
 import CompletionModal from "./components/hud/CompletionModal";
 import MissionModal from "./components/project/MissionModal";
+import BehanceModal from "./components/project/BehanceModal";
 import Home from "./components/Home";
 import AboutMe from "./components/worlds/AboutMe";
 import Projects from "./components/worlds/Projects";
+import BehanceShowcase from "./components/worlds/BehanceShowcase";
 import DesignWorkshop from "./components/worlds/DesignWorkshop";
 import BeyondDesign from "./components/worlds/BeyondDesign";
 import ContactPortal from "./components/ContactPortal";
@@ -44,11 +46,13 @@ function App() {
       <AchievementToast />
       <CompletionModal />
       <MissionModal />
+      <BehanceModal />
 
       <main className="relative">
         <Home />
         <AboutMe />
         <Projects />
+        <BehanceShowcase />
         <DesignWorkshop />
         <BeyondDesign />
         <ContactPortal />
