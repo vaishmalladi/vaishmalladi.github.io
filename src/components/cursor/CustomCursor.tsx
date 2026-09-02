@@ -30,15 +30,6 @@ function PixelCursorIcon() {
   );
 }
 
-/** Scattered sparkle particles trailing the cursor at different lag speeds for a whimsical, dust-like feel. */
-const AURA_PARTICLES = [
-  { dx: -42, dy: -26, size: 10, blur: 1.5, color: "#ff2f93", stiffness: 170, damping: 16, mass: 0.5, delay: "0s" },
-  { dx: 34, dy: -44, size: 8, blur: 1.5, color: "#a5bcd6", stiffness: 120, damping: 18, mass: 0.6, delay: "0.5s" },
-  { dx: 46, dy: 22, size: 12, blur: 2, color: "#ffd46a", stiffness: 80, damping: 20, mass: 0.8, delay: "1s" },
-  { dx: -22, dy: 44, size: 7, blur: 1.5, color: "#00c2b8", stiffness: 140, damping: 17, mass: 0.55, delay: "1.5s" },
-  { dx: 8, dy: -54, size: 9, blur: 1.5, color: "#c792ea", stiffness: 60, damping: 22, mass: 1, delay: "2s" },
-] as const;
-
 export default function CustomCursor() {
   const [enabled, setEnabled] = useState(
     () => typeof window !== "undefined" && window.matchMedia("(hover: hover) and (pointer: fine)").matches,
@@ -50,23 +41,8 @@ export default function CustomCursor() {
   const springY = useSpring(cursorY, { damping: 28, stiffness: 320, mass: 0.4 });
   const ringX = useSpring(cursorX, { damping: 22, stiffness: 160, mass: 0.6 });
   const ringY = useSpring(cursorY, { damping: 22, stiffness: 160, mass: 0.6 });
-  const particleX0 = useSpring(cursorX, AURA_PARTICLES[0]);
-  const particleY0 = useSpring(cursorY, AURA_PARTICLES[0]);
-  const particleX1 = useSpring(cursorX, AURA_PARTICLES[1]);
-  const particleY1 = useSpring(cursorY, AURA_PARTICLES[1]);
-  const particleX2 = useSpring(cursorX, AURA_PARTICLES[2]);
-  const particleY2 = useSpring(cursorY, AURA_PARTICLES[2]);
-  const particleX3 = useSpring(cursorX, AURA_PARTICLES[3]);
-  const particleY3 = useSpring(cursorY, AURA_PARTICLES[3]);
-  const particleX4 = useSpring(cursorX, AURA_PARTICLES[4]);
-  const particleY4 = useSpring(cursorY, AURA_PARTICLES[4]);
-  const particlePositions = [
-    [particleX0, particleY0],
-    [particleX1, particleY1],
-    [particleX2, particleY2],
-    [particleX3, particleY3],
-    [particleX4, particleY4],
-  ] as const;
+  const auraX = useSpring(cursorX, { damping: 20, stiffness: 55, mass: 0.8 });
+  const auraY = useSpring(cursorY, { damping: 20, stiffness: 55, mass: 0.8 });
   const frame = useRef<number | null>(null);
 
   useEffect(() => {
@@ -107,32 +83,15 @@ export default function CustomCursor() {
   return (
     <div className="pointer-events-none fixed inset-0 z-[300]">
       <motion.div
-        animate={{ opacity: variant === "text" ? 0 : 1, scale: isExpanded ? 1.4 : 1 }}
-        transition={{ duration: 0.25 }}
-      >
-        {AURA_PARTICLES.map((particle, index) => {
-          const [x, y] = particlePositions[index];
-          return (
-            <motion.div
-              key={index}
-              className="cursor-particle fixed left-0 top-0 rounded-full"
-              style={{
-                x,
-                y,
-                translateX: `calc(-50% + ${particle.dx}px)`,
-                translateY: `calc(-50% + ${particle.dy}px)`,
-                width: particle.size,
-                height: particle.size,
-                backgroundColor: particle.color,
-                boxShadow: `0 0 ${particle.size}px ${particle.color}`,
-                opacity: 0.7,
-                animationDelay: particle.delay,
-                ["--particle-blur" as string]: `${particle.blur}px`,
-              }}
-            />
-          );
-        })}
-      </motion.div>
+        className="cursor-aura-glow fixed left-0 top-0 rounded-full"
+        style={{ x: auraX, y: auraY, translateX: "-50%", translateY: "-50%" }}
+        animate={{
+          width: isExpanded ? 260 : 200,
+          height: isExpanded ? 260 : 200,
+          opacity: variant === "text" ? 0.25 : 0.65,
+        }}
+        transition={{ type: "spring", damping: 20, stiffness: 70 }}
+      />
       <motion.div
         className="fixed left-0 top-0 select-none"
         style={{ x: springX, y: springY, translateX: "0%", translateY: "0%" }}
