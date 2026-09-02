@@ -99,11 +99,13 @@ select:focus-visible,
 
 .avatar-aura-glow {
   background:
-    radial-gradient(circle at 32% 28%, #ffd46a 0%, rgba(255, 212, 106, .55) 20%, rgba(255, 212, 106, 0) 44%),
-    radial-gradient(circle at 72% 34%, #ff2f93 0%, rgba(255, 47, 147, .5) 18%, rgba(255, 47, 147, 0) 42%),
-    radial-gradient(circle at 68% 72%, #a5bcd6 0%, rgba(165, 188, 214, .55) 22%, rgba(165, 188, 214, 0) 46%),
-    radial-gradient(circle at 30% 74%, #6b7a3a 0%, rgba(107, 122, 58, .45) 20%, rgba(107, 122, 58, 0) 44%),
-    radial-gradient(circle at 50% 50%, #d9a99a 0%, rgba(217, 169, 154, .5) 26%, rgba(217, 169, 154, 0) 54%);
+    radial-gradient(ellipse 34% 29% at 15% 18%, #ffd46a 0%, rgba(255, 212, 106, .5) 34%, rgba(255, 212, 106, 0) 72%),
+    radial-gradient(ellipse 29% 38% at 84% 22%, #ff2f93 0%, rgba(255, 47, 147, .48) 32%, rgba(255, 47, 147, 0) 70%),
+    radial-gradient(ellipse 38% 28% at 91% 72%, #a5bcd6 0%, rgba(165, 188, 214, .52) 36%, rgba(165, 188, 214, 0) 74%),
+    radial-gradient(ellipse 30% 36% at 12% 78%, #6b7a3a 0%, rgba(107, 122, 58, .42) 34%, rgba(107, 122, 58, 0) 72%),
+    radial-gradient(ellipse 26% 22% at 54% 8%, #d9a99a 0%, rgba(217, 169, 154, .45) 34%, rgba(217, 169, 154, 0) 70%),
+    radial-gradient(ellipse 32% 24% at 48% 92%, #ff8f70 0%, rgba(255, 143, 112, .38) 32%, rgba(255, 143, 112, 0) 72%),
+    radial-gradient(ellipse 42% 46% at 50% 50%, rgba(217, 169, 154, .42) 0%, rgba(217, 169, 154, .2) 42%, rgba(217, 169, 154, 0) 76%);
   animation: avatar-aura-spin 9s ease-in-out infinite;
 }
 
