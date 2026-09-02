@@ -80,7 +80,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      <div className="pointer-events-none fixed inset-0 z-[299]">
+      <div className="pointer-events-none fixed inset-0 -z-[5]">
         <motion.div
           className="cursor-aura-glow fixed left-0 top-0 rounded-full"
           style={{
@@ -93,7 +93,7 @@ export default function CustomCursor() {
           animate={{
             width: isExpanded ? 380 : 300,
             height: isExpanded ? 380 : 300,
-            opacity: variant === "text" ? 0.05 : 0.18,
+            opacity: variant === "text" ? 0.08 : 0.28,
           }}
           transition={{ duration: 0.2 }}
         />

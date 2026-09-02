@@ -92,18 +92,18 @@ select:focus-visible,
 }
 
 @keyframes aura-glow-drift {
-  0% { filter: blur(90px) hue-rotate(0deg) saturate(100%); }
-  50% { filter: blur(105px) hue-rotate(15deg) saturate(105%); }
-  100% { filter: blur(90px) hue-rotate(0deg) saturate(100%); }
+  0% { filter: blur(32px) hue-rotate(0deg) saturate(100%); }
+  50% { filter: blur(40px) hue-rotate(15deg) saturate(105%); }
+  100% { filter: blur(32px) hue-rotate(0deg) saturate(100%); }
 }
 
 .cursor-aura-glow {
   background:
-    radial-gradient(circle at 12% 10%, #cdc2f5 0%, transparent 34%),
-    radial-gradient(circle at 88% 18%, #ded4fa 0%, transparent 32%),
-    radial-gradient(circle at 82% 88%, #b8b0e8 0%, transparent 36%),
-    radial-gradient(circle at 10% 86%, #e6ddfb 0%, transparent 34%),
-    radial-gradient(circle at 50% 50%, #d7cdf2 0%, transparent 48%);
+    radial-gradient(circle at 12% 10%, #cdc2f5 0%, rgba(205, 194, 245, .5) 18%, rgba(205, 194, 245, 0) 38%),
+    radial-gradient(circle at 88% 18%, #ded4fa 0%, rgba(222, 212, 250, .5) 16%, rgba(222, 212, 250, 0) 36%),
+    radial-gradient(circle at 82% 88%, #b8b0e8 0%, rgba(184, 176, 232, .5) 20%, rgba(184, 176, 232, 0) 40%),
+    radial-gradient(circle at 10% 86%, #e6ddfb 0%, rgba(230, 221, 251, .5) 18%, rgba(230, 221, 251, 0) 38%),
+    radial-gradient(circle at 50% 50%, #d7cdf2 0%, rgba(215, 205, 242, .5) 26%, rgba(215, 205, 242, 0) 52%);
   animation: aura-glow-drift 10s ease-in-out infinite;
 }
 
