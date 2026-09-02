@@ -5,7 +5,7 @@ import GlassPanel from "./GlassPanel";
 export default function ComponentPlayground() {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
-      <GlassPanel className="flex flex-col gap-6 p-6">
+      <GlassPanel className="flex flex-col gap-5 p-4 sm:gap-6 sm:p-6">
         <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--color-violet-deep)]">
           Component Playground
         </span>
@@ -40,7 +40,7 @@ export default function ComponentPlayground() {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 min-[380px]:grid-cols-2">
           {["Notification", "Metric Card"].map((label) => (
             <motion.div
               key={label}
@@ -56,11 +56,11 @@ export default function ComponentPlayground() {
         </div>
       </GlassPanel>
 
-      <GlassPanel className="flex flex-col gap-4 p-6">
+      <GlassPanel className="flex flex-col gap-4 p-4 sm:p-6">
         <span className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--color-violet-deep)]">
           Design Tokens
         </span>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:grid-cols-3">
           {DESIGN_TOKENS.map((token) => (
             <div key={token.name} className="flex items-center gap-2 border border-[var(--color-hairline)]/10 bg-[var(--color-veil)]/[0.04] p-2.5">
               {token.swatch && (

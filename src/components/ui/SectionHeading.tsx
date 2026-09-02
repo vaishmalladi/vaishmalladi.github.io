@@ -17,11 +17,11 @@ export default function SectionHeading({ kicker, title, description, align = "le
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="font-mono text-xs uppercase tracking-[0.35em] text-[var(--color-violet-deep)]"
+        className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--color-violet-deep)] sm:text-xs sm:tracking-[0.35em]"
       >
         {kicker}
       </motion.span>
-      <h2 className="flex flex-wrap gap-x-3 font-display text-3xl font-bold sm:text-5xl">
+      <h2 className="flex flex-wrap gap-x-2 font-display text-[clamp(2rem,10vw,3rem)] font-bold sm:gap-x-3 sm:text-5xl">
         {words.map((word, i) => (
           <motion.span
             key={`${word}-${i}`}
@@ -41,7 +41,7 @@ export default function SectionHeading({ kicker, title, description, align = "le
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className={cn("max-w-xl text-sm text-[var(--color-ink-soft)] sm:text-base", align === "center" && "mx-auto")}
+          className={cn("max-w-xl text-sm leading-6 text-[var(--color-ink-soft)] sm:text-base", align === "center" && "mx-auto")}
         >
           {description}
         </motion.p>

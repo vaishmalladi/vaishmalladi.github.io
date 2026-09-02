@@ -63,7 +63,7 @@ export default function Home() {
     <section
       id="home"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative isolate flex min-h-screen w-full items-center overflow-hidden bg-[var(--color-canvas)] px-5 pb-16 pt-28 text-[var(--color-ink)] sm:px-8 lg:px-10 lg:pb-10 lg:pt-24"
+      className="relative isolate flex min-h-[100dvh] w-full items-center overflow-hidden bg-[var(--color-canvas)] px-4 pb-14 pt-24 text-[var(--color-ink)] sm:px-8 sm:pb-16 sm:pt-28 lg:px-10 lg:pb-10 lg:pt-24"
     >
       <div className="pointer-events-none absolute inset-0 opacity-25 [background-image:linear-gradient(color-mix(in_srgb,var(--color-cyan)_18%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--color-cyan)_18%,transparent)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:linear-gradient(to_bottom,black,transparent_88%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-[58%] h-px bg-[var(--color-cyan)]/45 shadow-[0_0_18px_var(--color-cyan)]" />
@@ -83,7 +83,7 @@ export default function Home() {
           </div>
 
           <p className="font-pixel text-[10px] uppercase tracking-[0.18em] text-[var(--color-ink)]/60 sm:text-xs">Character selected</p>
-          <h1 className="mt-4 font-display text-[clamp(2.4rem,5.6vw,5.6rem)] font-black leading-[0.9] tracking-normal">
+          <h1 className="mt-4 font-display text-[clamp(2.25rem,10vw,3.25rem)] font-black leading-[0.9] tracking-normal sm:text-[clamp(2.4rem,5.6vw,5.6rem)]">
             VAISHNAVI
             <span className="mt-2 block text-[.44em] font-semibold leading-tight text-[var(--color-ink)]/75">makes the</span>
             <span className="mt-1 block text-[.68em] leading-tight">
@@ -98,7 +98,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="relative order-1 h-[48vh] min-h-[380px] w-full lg:order-2 lg:h-[76vh] lg:min-h-[590px]"
+          className="relative order-1 h-[48svh] min-h-[340px] max-h-[440px] w-full sm:h-[48vh] sm:min-h-[380px] sm:max-h-none lg:order-2 lg:h-[76vh] lg:min-h-[590px]"
           animate={introComplete ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.94 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >

@@ -50,7 +50,7 @@ export default function MissionModal() {
     <AnimatePresence>
       {project && (
         <motion.div
-          className="fixed inset-0 z-[130] flex items-center justify-center bg-[#010204]/90 p-2 backdrop-blur-md sm:p-5"
+          className="fixed inset-0 z-[130] flex items-center justify-center bg-[#010204]/90 p-0 backdrop-blur-md sm:p-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -63,7 +63,7 @@ export default function MissionModal() {
             exit={{ scale: 0.94, opacity: 0, y: 20 }}
             transition={{ type: "spring", stiffness: 220, damping: 26 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative flex h-full max-h-[940px] w-full max-w-[1280px] flex-col overflow-hidden border border-[var(--color-hairline)]/18 bg-[var(--color-canvas)] text-[var(--color-ink)] shadow-[0_35px_100px_rgba(0,0,0,.75)]"
+            className="relative flex h-[100dvh] max-h-none w-full max-w-[1280px] flex-col overflow-hidden border-0 bg-[var(--color-canvas)] text-[var(--color-ink)] shadow-[0_35px_100px_rgba(0,0,0,.75)] sm:h-full sm:max-h-[940px] sm:border sm:border-[var(--color-hairline)]/18"
             role="dialog"
             aria-modal="true"
             aria-labelledby="mission-title"
@@ -75,7 +75,7 @@ export default function MissionModal() {
               />
             </div>
 
-            <header className="relative z-20 flex min-h-16 items-center justify-between gap-3 border-b border-[var(--color-hairline)]/12 bg-[var(--color-surface)] px-4 py-3 sm:px-6">
+            <header className="relative z-20 flex min-h-14 items-center justify-between gap-2 border-b border-[var(--color-hairline)]/12 bg-[var(--color-surface)] px-3 py-2 sm:min-h-16 sm:gap-3 sm:px-6 sm:py-3">
               <div className="flex min-w-0 items-center gap-3">
                 <span className="hidden border-2 border-[var(--color-violet)] px-2 py-1 font-pixel text-[8px] text-[var(--color-violet)] sm:inline">READY</span>
                 <div className="min-w-0">
@@ -95,7 +95,7 @@ export default function MissionModal() {
                   type="button"
                   data-cursor="button"
                   onClick={() => closeProject()}
-                  className="flex size-9 items-center justify-center border border-[var(--color-hairline)]/20 bg-[var(--color-veil)]/5 text-xl leading-none text-[var(--color-ink)] transition-colors hover:border-[var(--color-violet)] hover:text-[var(--color-violet)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cyan)]"
+                  className="flex size-11 items-center justify-center border border-[var(--color-hairline)]/20 bg-[var(--color-veil)]/5 text-xl leading-none text-[var(--color-ink)] transition-colors hover:border-[var(--color-violet)] hover:text-[var(--color-violet)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-cyan)] sm:size-9"
                   aria-label="Close mission"
                 >
                   ×
@@ -103,14 +103,14 @@ export default function MissionModal() {
               </div>
             </header>
 
-            <div ref={containerRef} onScroll={handleScroll} data-lenis-prevent className="flex-1 overflow-y-auto">
-              <div className="mx-auto max-w-[1180px] px-4 py-7 sm:px-7 sm:py-10">
+            <div ref={containerRef} onScroll={handleScroll} data-lenis-prevent className="flex-1 overscroll-contain overflow-y-auto">
+              <div className="mx-auto max-w-[1180px] px-4 py-6 sm:px-7 sm:py-10">
                 <div className="grid items-start gap-6 lg:grid-cols-[1fr_390px] lg:gap-10">
                   <div className="pt-1">
                     <p className="font-pixel text-[8px] uppercase tracking-[0.2em] text-[var(--color-cyan)]">
                       {project.year} // {project.tags.join(" + ")}
                     </p>
-                    <h3 className="mt-4 max-w-3xl font-display text-[clamp(2.4rem,6vw,5.8rem)] font-black leading-[0.88] tracking-normal">
+                    <h3 className="mt-4 max-w-3xl font-display text-[clamp(2rem,10vw,3.5rem)] font-black leading-[0.9] tracking-normal sm:text-[clamp(2.4rem,6vw,5.8rem)]">
                       {project.title}
                     </h3>
                     <p className="mt-5 max-w-2xl font-mono text-sm leading-7 text-[var(--color-ink)]/78 sm:text-base">
@@ -122,7 +122,7 @@ export default function MissionModal() {
                     </div>
                   </div>
 
-                  <aside className="border-2 border-[var(--color-violet)] bg-[var(--color-surface-2)] p-5 shadow-[8px_8px_0_color-mix(in_srgb,var(--color-violet)_12%,transparent)] sm:p-6">
+                  <aside className="border-2 border-[var(--color-violet)] bg-[var(--color-surface-2)] p-4 shadow-[6px_6px_0_color-mix(in_srgb,var(--color-violet)_12%,transparent)] sm:p-6 sm:shadow-[8px_8px_0_color-mix(in_srgb,var(--color-violet)_12%,transparent)]">
                     <div className="flex items-center justify-between border-b border-[var(--color-hairline)]/12 pb-4">
                       <h4 className="font-pixel text-[10px] text-[var(--color-heading)]">CHAPTER BRIEF</h4>
                       <span className="font-mono text-[9px] text-[var(--color-mint)]">DATA SYNCED</span>
@@ -168,7 +168,7 @@ export default function MissionModal() {
                 )}
 
                 <div className="relative mt-14 sm:mt-20">
-                  <div className="absolute bottom-14 left-[21px] top-4 w-px bg-[var(--color-cyan)]/35 shadow-[0_0_8px_color-mix(in_srgb,var(--color-cyan)_40%,transparent)] sm:left-[27px]" />
+                  <div className="absolute bottom-14 left-[17px] top-4 w-px bg-[var(--color-cyan)]/35 shadow-[0_0_8px_color-mix(in_srgb,var(--color-cyan)_40%,transparent)] sm:left-[27px]" />
                   <div className="flex flex-col gap-5 sm:gap-6">
                     {STAGES.map((stage, index) => {
                       const content = project[stage.key];
@@ -179,9 +179,9 @@ export default function MissionModal() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true, margin: "-70px", root: containerRef }}
                           transition={{ duration: 0.45, delay: 0.03 }}
-                          className="relative grid grid-cols-[44px_1fr] items-start gap-3 sm:grid-cols-[56px_1fr] sm:gap-5"
+                          className="relative grid grid-cols-[36px_minmax(0,1fr)] items-start gap-2 sm:grid-cols-[56px_1fr] sm:gap-5"
                         >
-                          <div className="relative z-10 flex size-11 items-center justify-center border-2 border-[var(--color-cyan)] bg-[var(--color-canvas)] font-pixel text-[9px] text-[var(--color-cyan)] shadow-[0_0_12px_color-mix(in_srgb,var(--color-cyan)_25%,transparent)] sm:size-14 sm:text-[10px]">
+                          <div className="relative z-10 flex size-9 items-center justify-center border-2 border-[var(--color-cyan)] bg-[var(--color-canvas)] font-pixel text-[8px] text-[var(--color-cyan)] shadow-[0_0_12px_color-mix(in_srgb,var(--color-cyan)_25%,transparent)] sm:size-14 sm:text-[10px]">
                             {String(index + 1).padStart(2, "0")}
                           </div>
                           <div className="min-w-0 border border-[var(--color-hairline)]/13 bg-[var(--color-surface-2)] p-4 transition-colors hover:border-[var(--color-cyan)]/55 sm:p-5">

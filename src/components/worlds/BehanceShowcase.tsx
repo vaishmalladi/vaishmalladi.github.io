@@ -6,13 +6,13 @@ export default function BehanceShowcase() {
   return (
     <section
       id="behance"
-      className="relative isolate min-h-screen w-full overflow-hidden bg-[var(--color-surface)] px-5 py-28 text-[var(--color-ink)] sm:px-8 lg:px-12"
+      className="relative isolate min-h-[100dvh] w-full overflow-hidden bg-[var(--color-surface)] px-4 py-20 text-[var(--color-ink)] sm:px-8 sm:py-28 lg:px-12"
     >
       <div className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(color-mix(in_srgb,var(--color-ink)_3.5%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_srgb,var(--color-ink)_3.5%,transparent)_1px,transparent_1px)] [background-size:48px_48px]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-violet)] to-transparent shadow-[0_0_20px_var(--color-violet)]" />
 
       <div className="relative mx-auto max-w-[1400px]">
-        <header className="mb-10 flex flex-col justify-between gap-6 border-b border-[var(--color-hairline)]/12 pb-8 md:flex-row md:items-end">
+        <header className="mb-8 flex flex-col justify-between gap-5 border-b border-[var(--color-hairline)]/12 pb-6 sm:mb-10 sm:gap-6 sm:pb-8 md:flex-row md:items-end">
           <div>
             <motion.p
               initial={{ opacity: 0, y: 8 }}
@@ -42,7 +42,7 @@ export default function BehanceShowcase() {
           </div>
         </header>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {BEHANCE_PROJECTS.map((project) => (
             <BehanceCard key={project.id} project={project} />
           ))}

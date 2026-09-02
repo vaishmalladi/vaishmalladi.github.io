@@ -25,7 +25,7 @@ export default function SkillRadar({ axes, size = 280 }: SkillRadarProps) {
       width={size}
       height={size}
       viewBox={`0 0 ${size} ${size}`}
-      className="mx-auto overflow-visible"
+      className="mx-auto h-auto w-full max-w-[280px] overflow-visible"
       role="img"
       aria-label={`Skill radar chart: ${summary}`}
     >

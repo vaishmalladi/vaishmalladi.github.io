@@ -9,7 +9,7 @@ export default function DesignWorkshop() {
     <section
       id="design-systems"
       ref={ref as React.RefObject<HTMLElement>}
-      className="island-backdrop relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-12 px-6 py-28"
+      className="island-backdrop relative mx-auto flex min-h-[100dvh] max-w-6xl flex-col justify-center gap-10 px-4 py-20 sm:gap-12 sm:px-6 sm:py-28"
       style={{ "--island-accent-soft": "#E4FBF9" } as React.CSSProperties}
     >
       <SectionHeading

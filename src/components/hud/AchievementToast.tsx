@@ -14,7 +14,7 @@ export default function AchievementToast() {
   }, [current, dismissToast]);
 
   return (
-    <div className="pointer-events-none fixed left-1/2 top-6 z-[90] w-full max-w-xs -translate-x-1/2 px-4 sm:left-auto sm:right-6 sm:translate-x-0">
+    <div className="pointer-events-none fixed bottom-3 left-1/2 z-[90] w-[calc(100%-1rem)] max-w-72 -translate-x-1/2 sm:bottom-auto sm:left-auto sm:right-6 sm:top-6 sm:w-full sm:max-w-xs sm:translate-x-0 sm:px-4">
       <AnimatePresence>
         {current && (
           <motion.div
@@ -23,15 +23,15 @@ export default function AchievementToast() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -16, scale: 0.9 }}
             transition={{ type: "spring", stiffness: 300, damping: 24 }}
-            className="glass-panel-strong flex items-center gap-3 rounded-2xl px-4 py-3"
+            className="glass-panel-strong flex items-center gap-2 rounded-2xl px-3 py-2 sm:gap-3 sm:px-4 sm:py-3"
           >
-            <span className="text-2xl">{current.icon}</span>
-            <div className="flex flex-col">
-              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[var(--color-violet-deep)]">
+            <span className="text-xl sm:text-2xl">{current.icon}</span>
+            <div className="min-w-0 flex-1">
+              <span className="block truncate font-mono text-[8px] uppercase tracking-[0.14em] text-[var(--color-violet-deep)] sm:text-[10px] sm:tracking-[0.25em]">
                 Achievement Unlocked
               </span>
-              <span className="font-display text-sm font-semibold">{current.title}</span>
-              <span className="text-xs text-[var(--color-ink-soft)]">{current.description}</span>
+              <span className="block truncate font-display text-xs font-semibold sm:text-sm">{current.title}</span>
+              <span className="hidden text-xs text-[var(--color-ink-soft)] sm:block">{current.description}</span>
             </div>
           </motion.div>
         )}

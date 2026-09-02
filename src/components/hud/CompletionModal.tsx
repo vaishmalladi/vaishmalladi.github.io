@@ -20,7 +20,7 @@ export default function CompletionModal() {
     <AnimatePresence>
       {shouldShow && !dismissed && (
         <motion.div
-          className="fixed inset-0 z-[150] flex items-center justify-center bg-black/30 px-6 backdrop-blur-sm"
+          className="fixed inset-0 z-[150] flex items-center justify-center bg-black/30 px-4 backdrop-blur-sm sm:px-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -32,7 +32,7 @@ export default function CompletionModal() {
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ type: "spring", stiffness: 220, damping: 20 }}
             onClick={(e) => e.stopPropagation()}
-            className="glass-panel-strong relative max-w-sm rounded-3xl px-8 py-10 text-center"
+            className="glass-panel-strong relative max-h-[calc(100dvh-2rem)] w-full max-w-sm overflow-y-auto rounded-3xl px-5 py-8 text-center sm:px-8 sm:py-10"
           >
             <div className="absolute inset-0 -z-10 animate-pulse-glow rounded-3xl bg-gradient-to-br from-violet-300/40 via-cyan-200/30 to-amber-200/30 blur-2xl" />
             <span className="text-5xl">🏆</span>
@@ -48,7 +48,7 @@ export default function CompletionModal() {
               type="button"
               data-cursor="button"
               onClick={() => setDismissed(true)}
-              className="mt-6 rounded-full bg-[var(--color-violet-deep)] px-6 py-2.5 text-sm font-semibold text-white"
+              className="mt-6 min-h-11 rounded-full bg-[var(--color-violet-deep)] px-6 py-2.5 text-sm font-semibold text-white"
             >
               Continue Exploring
             </button>

@@ -166,7 +166,8 @@ export default function ChapterCard({ project, chapterNumber }: ChapterCardProps
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       whileHover={{ y: -7, scale: 1.01 }}
-      className="group relative flex aspect-video flex-col justify-between overflow-hidden border border-[var(--color-hairline)]/18 bg-[var(--color-canvas)] p-5 text-left shadow-[0_24px_55px_-22px_rgba(0,0,0,.8)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-cyan)]"
+      whileTap={{ scale: 0.985 }}
+      className="group relative flex aspect-[4/3] flex-col justify-between overflow-hidden border border-[var(--color-hairline)]/18 bg-[var(--color-canvas)] p-4 text-left shadow-[0_24px_55px_-22px_rgba(0,0,0,.8)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-cyan)] sm:aspect-video sm:p-5"
       aria-label={`Open chapter ${chapterNumber}: ${project.title}`}
     >
       {project.screens && project.screens.length > 0 ? (
@@ -178,11 +179,11 @@ export default function ChapterCard({ project, chapterNumber }: ChapterCardProps
       )}
       <span
         className={`pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/55 ${
-          hasCover ? "opacity-0 transition-opacity duration-300 group-hover:opacity-100" : ""
+          hasCover ? "opacity-0 transition-opacity duration-300 group-hover:opacity-100 [@media(hover:none)]:opacity-100" : ""
         }`}
       />
       {hasCover && (
-        <span className="pointer-events-none absolute inset-0 bg-black/78 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <span className="pointer-events-none absolute inset-0 bg-black/78 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [@media(hover:none)]:opacity-50" />
       )}
 
       <div className="relative z-10 flex items-center justify-between">
@@ -194,7 +195,7 @@ export default function ChapterCard({ project, chapterNumber }: ChapterCardProps
 
       <div
         className={`relative z-10 ${
-          hasCover ? "opacity-0 transition-opacity duration-300 group-hover:opacity-100" : ""
+          hasCover ? "opacity-0 transition-opacity duration-300 group-hover:opacity-100 [@media(hover:none)]:opacity-100" : ""
         }`}
       >
         <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">
@@ -214,7 +215,7 @@ export default function ChapterCard({ project, chapterNumber }: ChapterCardProps
         </div>
       </div>
 
-      <span className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-1 origin-left scale-x-0 bg-[var(--color-cyan)] shadow-[0_0_12px_var(--color-cyan)] transition-transform duration-300 group-hover:scale-x-100" />
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-1 origin-left scale-x-0 bg-[var(--color-cyan)] shadow-[0_0_12px_var(--color-cyan)] transition-transform duration-300 group-hover:scale-x-100 group-active:scale-x-100" />
       <span className="pointer-events-none absolute right-4 top-14 z-20 translate-x-3 font-pixel text-[7px] text-[var(--color-cyan)] opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100">
         ENTER CHAPTER +
       </span>

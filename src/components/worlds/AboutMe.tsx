@@ -17,7 +17,7 @@ export default function AboutMe() {
     <section
       id="about"
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-14 px-6 py-28"
+      className="relative mx-auto flex min-h-[100dvh] max-w-6xl flex-col justify-center gap-10 px-4 py-20 sm:gap-14 sm:px-6 sm:py-28"
     >
       <SectionHeading
         kicker="Character Profile"
@@ -26,12 +26,12 @@ export default function AboutMe() {
       />
 
       <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-        <GlassPanel strong className="flex flex-col gap-8 p-8">
+        <GlassPanel strong className="flex flex-col gap-7 p-5 sm:gap-8 sm:p-8">
           <div className="flex items-center gap-4">
             <div className="flex h-16 w-16 items-center justify-center border border-[var(--color-hairline)]/20 bg-gradient-to-br from-[var(--color-violet)] to-[var(--color-cyan)] font-pixel text-sm font-bold text-white">
               VM
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="font-display text-lg font-bold">Vaishnavi Malladi</p>
               <p className="text-sm text-[var(--color-ink-soft)]">Product & Visual Designer</p>
             </div>
@@ -67,7 +67,7 @@ export default function AboutMe() {
                     title={unlocked ? ach.description : "Keep exploring to unlock"}
                     animate={unlocked ? { y: [0, -4, 0] } : {}}
                     transition={{ repeat: Infinity, duration: 2.4, delay: (i % 5) * 0.3 }}
-                    className={`flex items-center gap-2 border px-3 py-1.5 text-xs font-medium ${
+                    className={`flex items-center gap-2 border px-2.5 py-1.5 text-[11px] font-medium sm:px-3 sm:text-xs ${
                       unlocked ? "glass-panel border-[var(--color-hairline)]/15 text-[var(--color-ink)]" : "border-[var(--color-hairline)]/[0.06] bg-[var(--color-veil)]/[0.02] text-[var(--color-ink-faint)] opacity-50 grayscale"
                     }`}
                   >
@@ -83,10 +83,10 @@ export default function AboutMe() {
             <p className="mb-2 font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-soft)]">
               Player Stats
             </p>
-            <div className="grid grid-cols-3 gap-3 text-xs">
+            <div className="grid grid-cols-3 gap-2 text-xs sm:gap-3">
               {PROFILE_STATS.map((stat) => (
-                <div key={stat.label} className="border border-[var(--color-hairline)]/10 bg-[var(--color-veil)]/[0.04] p-3 text-center">
-                  <p className="font-display text-base font-bold text-[var(--color-violet-deep)]">
+                <div key={stat.label} className="min-w-0 border border-[var(--color-hairline)]/10 bg-[var(--color-veil)]/[0.04] p-2 text-center sm:p-3">
+                  <p className="font-display text-sm font-bold text-[var(--color-violet-deep)] sm:text-base">
                     {stat.value}
                     {stat.suffix}
                   </p>
@@ -97,7 +97,7 @@ export default function AboutMe() {
           </div>
         </GlassPanel>
 
-        <GlassPanel className="flex flex-col items-center justify-center p-8">
+        <GlassPanel className="flex min-w-0 flex-col items-center justify-center p-5 sm:p-8">
           <p className="mb-2 font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-faint)]">
             Skill Radar
           </p>
@@ -105,14 +105,14 @@ export default function AboutMe() {
         </GlassPanel>
       </div>
 
-      <GlassPanel className="p-8">
+      <GlassPanel className="p-5 sm:p-8">
         <p className="mb-6 font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-faint)]">
           Journey Timeline
         </p>
         <Timeline entries={TIMELINE} />
       </GlassPanel>
 
-      <GlassPanel className="p-8">
+      <GlassPanel className="p-5 sm:p-8">
         <p className="mb-6 font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-ink-faint)]">
           Skills
         </p>
