@@ -93,7 +93,7 @@ export default function CustomCursor() {
           animate={{
             width: isExpanded ? 380 : 300,
             height: isExpanded ? 380 : 300,
-            opacity: variant === "text" ? 0.15 : 0.5,
+            opacity: variant === "text" ? 0.05 : 0.18,
           }}
           transition={{ duration: 0.2 }}
         />

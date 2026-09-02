@@ -92,9 +92,9 @@ select:focus-visible,
 }
 
 @keyframes aura-glow-drift {
-  0% { filter: blur(70px) hue-rotate(0deg) saturate(115%); }
-  50% { filter: blur(85px) hue-rotate(20deg) saturate(125%); }
-  100% { filter: blur(70px) hue-rotate(0deg) saturate(115%); }
+  0% { filter: blur(90px) hue-rotate(0deg) saturate(100%); }
+  50% { filter: blur(105px) hue-rotate(15deg) saturate(105%); }
+  100% { filter: blur(90px) hue-rotate(0deg) saturate(100%); }
 }
 
 .cursor-aura-glow {
