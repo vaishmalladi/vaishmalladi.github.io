@@ -88,7 +88,7 @@ export default function CustomCursor() {
         animate={{
           width: isExpanded ? 130 : 100,
           height: isExpanded ? 130 : 100,
-          opacity: variant === "text" ? 0.35 : 0.6,
+          opacity: variant === "text" ? 0.45 : 0.85,
         }}
         transition={{ type: "spring", damping: 18, stiffness: 90 }}
       >
@@ -97,8 +97,6 @@ export default function CustomCursor() {
           style={{
             background:
               "conic-gradient(from 0deg, var(--color-heading), var(--color-heading-alt), var(--color-gold), var(--color-mint), var(--color-heading))",
-            filter: "blur(22px)",
-            mixBlendMode: "multiply",
           }}
         />
       </motion.div>
