@@ -92,18 +92,18 @@ select:focus-visible,
 }
 
 @keyframes aura-glow-drift {
-  0% { filter: blur(400px) hue-rotate(0deg) saturate(140%); }
-  50% { filter: blur(400px) hue-rotate(180deg) saturate(160%); }
-  100% { filter: blur(400px) hue-rotate(360deg) saturate(140%); }
+  0% { filter: blur(70px) hue-rotate(0deg) saturate(115%); }
+  50% { filter: blur(85px) hue-rotate(20deg) saturate(125%); }
+  100% { filter: blur(70px) hue-rotate(0deg) saturate(115%); }
 }
 
 .cursor-aura-glow {
   background:
-    radial-gradient(circle at 20% 18%, #ffc4e0 0%, transparent 42%),
-    radial-gradient(circle at 78% 26%, #f0b8d8 0%, transparent 38%),
-    radial-gradient(circle at 74% 78%, #b3c8f5 0%, transparent 45%),
-    radial-gradient(circle at 18% 76%, #d9b3f0 0%, transparent 42%),
-    radial-gradient(circle at 50% 50%, #e0c2ec 0%, transparent 58%);
+    radial-gradient(circle at 28% 22%, #cdc2f5 0%, transparent 46%),
+    radial-gradient(circle at 76% 30%, #ded4fa 0%, transparent 42%),
+    radial-gradient(circle at 70% 76%, #b8b0e8 0%, transparent 48%),
+    radial-gradient(circle at 24% 74%, #e6ddfb 0%, transparent 46%),
+    radial-gradient(circle at 50% 50%, #d7cdf2 0%, transparent 62%);
   animation: aura-glow-drift 10s ease-in-out infinite;
 }
 
