@@ -32,11 +32,11 @@ function PixelCursorIcon() {
 
 /** Scattered sparkle particles trailing the cursor at different lag speeds for a whimsical, dust-like feel. */
 const AURA_PARTICLES = [
-  { dx: -42, dy: -26, size: 6, blur: 2.5, color: "#ff2f93", stiffness: 170, damping: 16, mass: 0.5, delay: "0s" },
-  { dx: 34, dy: -44, size: 5, blur: 2, color: "#a5bcd6", stiffness: 120, damping: 18, mass: 0.6, delay: "0.5s" },
-  { dx: 46, dy: 22, size: 7, blur: 3, color: "#ffd46a", stiffness: 80, damping: 20, mass: 0.8, delay: "1s" },
-  { dx: -22, dy: 44, size: 4, blur: 2, color: "#00c2b8", stiffness: 140, damping: 17, mass: 0.55, delay: "1.5s" },
-  { dx: 8, dy: -54, size: 5, blur: 2, color: "#c792ea", stiffness: 60, damping: 22, mass: 1, delay: "2s" },
+  { dx: -42, dy: -26, size: 10, blur: 1.5, color: "#ff2f93", stiffness: 170, damping: 16, mass: 0.5, delay: "0s" },
+  { dx: 34, dy: -44, size: 8, blur: 1.5, color: "#a5bcd6", stiffness: 120, damping: 18, mass: 0.6, delay: "0.5s" },
+  { dx: 46, dy: 22, size: 12, blur: 2, color: "#ffd46a", stiffness: 80, damping: 20, mass: 0.8, delay: "1s" },
+  { dx: -22, dy: 44, size: 7, blur: 1.5, color: "#00c2b8", stiffness: 140, damping: 17, mass: 0.55, delay: "1.5s" },
+  { dx: 8, dy: -54, size: 9, blur: 1.5, color: "#c792ea", stiffness: 60, damping: 22, mass: 1, delay: "2s" },
 ] as const;
 
 export default function CustomCursor() {
@@ -124,7 +124,8 @@ export default function CustomCursor() {
                 width: particle.size,
                 height: particle.size,
                 backgroundColor: particle.color,
-                opacity: 0.4,
+                boxShadow: `0 0 ${particle.size}px ${particle.color}`,
+                opacity: 0.7,
                 animationDelay: particle.delay,
                 ["--particle-blur" as string]: `${particle.blur}px`,
               }}
