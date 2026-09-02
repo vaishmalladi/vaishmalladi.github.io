@@ -79,25 +79,34 @@ export default function CustomCursor() {
   const isExpanded = variant === "button" || variant === "project";
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[300]">
-      <motion.div
-        className="cursor-aura-glow fixed left-0 top-0 rounded-full"
-        style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
-        animate={{
-          width: isExpanded ? 380 : 300,
-          height: isExpanded ? 380 : 300,
-          opacity: variant === "text" ? 0.15 : 0.45,
-        }}
-        transition={{ duration: 0.2 }}
-      />
-      <motion.div
-        className="fixed left-0 top-0 select-none"
-        style={{ x: springX, y: springY, translateX: "0%", translateY: "0%" }}
-        animate={{ width: isExpanded ? 34 : 24, height: isExpanded ? 42.5 : 30, opacity: variant === "text" ? 0 : 1 }}
-        transition={{ duration: 0.2 }}
-      >
-        <PixelCursorIcon />
-      </motion.div>
+    <>
+      <div className="pointer-events-none fixed inset-0 z-[299]">
+        <motion.div
+          className="cursor-aura-glow fixed left-0 top-0 rounded-full"
+          style={{
+            x: cursorX,
+            y: cursorY,
+            translateX: "-50%",
+            translateY: "-50%",
+            mixBlendMode: "multiply",
+          }}
+          animate={{
+            width: isExpanded ? 380 : 300,
+            height: isExpanded ? 380 : 300,
+            opacity: variant === "text" ? 0.15 : 0.5,
+          }}
+          transition={{ duration: 0.2 }}
+        />
+      </div>
+      <div className="pointer-events-none fixed inset-0 z-[300]">
+        <motion.div
+          className="fixed left-0 top-0 select-none"
+          style={{ x: springX, y: springY, translateX: "0%", translateY: "0%" }}
+          animate={{ width: isExpanded ? 26 : 18, height: isExpanded ? 32.5 : 22.5, opacity: variant === "text" ? 0 : 1 }}
+          transition={{ duration: 0.2 }}
+        >
+          <PixelCursorIcon />
+        </motion.div>
       <motion.div
         className="fixed left-0 top-0 rounded-full border"
         style={{
@@ -119,6 +128,7 @@ export default function CustomCursor() {
         }}
         transition={{ type: "spring", damping: 20, stiffness: 260 }}
       />
-    </div>
+      </div>
+    </>
   );
 }

@@ -99,11 +99,11 @@ select:focus-visible,
 
 .cursor-aura-glow {
   background:
-    radial-gradient(circle at 28% 22%, #cdc2f5 0%, transparent 46%),
-    radial-gradient(circle at 76% 30%, #ded4fa 0%, transparent 42%),
-    radial-gradient(circle at 70% 76%, #b8b0e8 0%, transparent 48%),
-    radial-gradient(circle at 24% 74%, #e6ddfb 0%, transparent 46%),
-    radial-gradient(circle at 50% 50%, #d7cdf2 0%, transparent 62%);
+    radial-gradient(circle at 12% 10%, #cdc2f5 0%, transparent 34%),
+    radial-gradient(circle at 88% 18%, #ded4fa 0%, transparent 32%),
+    radial-gradient(circle at 82% 88%, #b8b0e8 0%, transparent 36%),
+    radial-gradient(circle at 10% 86%, #e6ddfb 0%, transparent 34%),
+    radial-gradient(circle at 50% 50%, #d7cdf2 0%, transparent 48%);
   animation: aura-glow-drift 10s ease-in-out infinite;
 }
 
