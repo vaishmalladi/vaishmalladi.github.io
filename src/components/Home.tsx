@@ -113,7 +113,7 @@ export default function Home() {
           <RotatingAvatar className="h-full w-full" />
 
           <div className="absolute bottom-[1%] left-1/2 w-[min(92%,420px)] -translate-x-1/2 border-x-2 border-[var(--color-violet)] bg-[var(--color-surface-2)]/90 px-4 py-3 text-center backdrop-blur-sm">
-            <p className="font-pixel text-[11px] text-[var(--color-ink)] sm:text-sm">VAISHNAVI M.</p>
+            <p className="font-pixel text-[11px] text-[var(--color-ink)] sm:text-sm">VAISHNAVI MALLADI</p>
             <div className="mt-2 flex items-center justify-center gap-3 font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--color-ink)]/60">
               <span>Systems thinker</span><span className="text-[var(--color-violet)]">//</span><span>Visual craft</span>
             </div>
