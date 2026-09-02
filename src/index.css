@@ -91,13 +91,18 @@ select:focus-visible,
   98% { opacity: 1; }
 }
 
-@keyframes cursor-aura-spin {
-  0% { transform: rotate(0deg); filter: blur(14px) hue-rotate(0deg) saturate(220%); }
-  100% { transform: rotate(360deg); filter: blur(14px) hue-rotate(360deg) saturate(220%); }
+@keyframes particle-drift {
+  0%, 100% { opacity: 0.2; transform: scale(0.7); }
+  50% { opacity: 0.55; transform: scale(1.1); }
 }
 
-.cursor-aura-spin {
-  animation: cursor-aura-spin 6s linear infinite;
+@keyframes particle-hue {
+  0% { filter: blur(var(--particle-blur, 6px)) hue-rotate(0deg) saturate(200%); }
+  100% { filter: blur(var(--particle-blur, 6px)) hue-rotate(360deg) saturate(200%); }
+}
+
+.cursor-particle {
+  animation: particle-drift 2.8s ease-in-out infinite, particle-hue 6s linear infinite;
 }
 
 .animate-float-slow { animation: float 9s ease-in-out infinite; }
