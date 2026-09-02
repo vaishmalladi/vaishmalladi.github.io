@@ -101,9 +101,10 @@ select:focus-visible,
   background: radial-gradient(
     circle at 50% 50%,
     rgba(255, 47, 147, .58) 0%,
-    rgba(217, 169, 154, .46) 32%,
-    rgba(165, 188, 214, .34) 58%,
-    rgba(165, 188, 214, 0) 82%
+    rgba(217, 169, 154, .46) 34%,
+    rgba(165, 188, 214, .36) 62%,
+    rgba(165, 188, 214, .16) 78%,
+    rgba(165, 188, 214, 0) 84%
   );
   animation: avatar-aura-spin 9s ease-in-out infinite;
 }
