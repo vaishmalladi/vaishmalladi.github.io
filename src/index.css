@@ -92,8 +92,8 @@ select:focus-visible,
 }
 
 @keyframes cursor-aura-spin {
-  0% { transform: rotate(0deg); filter: blur(18px) hue-rotate(0deg) saturate(180%); }
-  100% { transform: rotate(360deg); filter: blur(18px) hue-rotate(360deg) saturate(180%); }
+  0% { transform: rotate(0deg); filter: blur(14px) hue-rotate(0deg) saturate(220%); }
+  100% { transform: rotate(360deg); filter: blur(14px) hue-rotate(360deg) saturate(220%); }
 }
 
 .cursor-aura-spin {

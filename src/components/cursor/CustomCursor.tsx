@@ -86,17 +86,16 @@ export default function CustomCursor() {
         className="fixed left-0 top-0 select-none"
         style={{ x: auraX, y: auraY, translateX: "-50%", translateY: "-50%" }}
         animate={{
-          width: isExpanded ? 130 : 100,
-          height: isExpanded ? 130 : 100,
-          opacity: variant === "text" ? 0.45 : 0.85,
+          width: isExpanded ? 150 : 118,
+          height: isExpanded ? 150 : 118,
+          opacity: variant === "text" ? 0.5 : 0.92,
         }}
         transition={{ type: "spring", damping: 18, stiffness: 90 }}
       >
         <div
           className="cursor-aura-spin h-full w-full rounded-full"
           style={{
-            background:
-              "conic-gradient(from 0deg, var(--color-heading), var(--color-heading-alt), var(--color-gold), var(--color-mint), var(--color-heading))",
+            background: "conic-gradient(from 0deg, #ff2f93, #a5bcd6, #ffd46a, #00c2b8, #ff2f93)",
           }}
         />
       </motion.div>
