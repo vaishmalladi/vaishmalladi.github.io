@@ -92,8 +92,8 @@ select:focus-visible,
 }
 
 @keyframes particle-drift {
-  0%, 100% { opacity: 0.2; transform: scale(0.7); }
-  50% { opacity: 0.55; transform: scale(1.1); }
+  0%, 100% { opacity: 0.08; transform: scale(0.6); }
+  50% { opacity: 0.32; transform: scale(1.05); }
 }
 
 @keyframes particle-hue {
