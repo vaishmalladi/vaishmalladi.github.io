@@ -91,20 +91,20 @@ select:focus-visible,
   98% { opacity: 1; }
 }
 
-@keyframes aura-glow-drift {
-  0% { filter: blur(32px) hue-rotate(0deg) saturate(100%); }
-  50% { filter: blur(40px) hue-rotate(15deg) saturate(105%); }
-  100% { filter: blur(32px) hue-rotate(0deg) saturate(100%); }
+@keyframes avatar-aura-spin {
+  0% { filter: blur(38px) hue-rotate(0deg) saturate(130%); }
+  50% { filter: blur(46px) hue-rotate(180deg) saturate(150%); }
+  100% { filter: blur(38px) hue-rotate(360deg) saturate(130%); }
 }
 
-.cursor-aura-glow {
+.avatar-aura-glow {
   background:
-    radial-gradient(circle at 12% 10%, #cdc2f5 0%, rgba(205, 194, 245, .5) 18%, rgba(205, 194, 245, 0) 38%),
-    radial-gradient(circle at 88% 18%, #ded4fa 0%, rgba(222, 212, 250, .5) 16%, rgba(222, 212, 250, 0) 36%),
-    radial-gradient(circle at 82% 88%, #b8b0e8 0%, rgba(184, 176, 232, .5) 20%, rgba(184, 176, 232, 0) 40%),
-    radial-gradient(circle at 10% 86%, #e6ddfb 0%, rgba(230, 221, 251, .5) 18%, rgba(230, 221, 251, 0) 38%),
-    radial-gradient(circle at 50% 50%, #d7cdf2 0%, rgba(215, 205, 242, .5) 26%, rgba(215, 205, 242, 0) 52%);
-  animation: aura-glow-drift 10s ease-in-out infinite;
+    radial-gradient(circle at 32% 28%, #ffd46a 0%, rgba(255, 212, 106, .55) 20%, rgba(255, 212, 106, 0) 44%),
+    radial-gradient(circle at 72% 34%, #ff2f93 0%, rgba(255, 47, 147, .5) 18%, rgba(255, 47, 147, 0) 42%),
+    radial-gradient(circle at 68% 72%, #a5bcd6 0%, rgba(165, 188, 214, .55) 22%, rgba(165, 188, 214, 0) 46%),
+    radial-gradient(circle at 30% 74%, #6b7a3a 0%, rgba(107, 122, 58, .45) 20%, rgba(107, 122, 58, 0) 44%),
+    radial-gradient(circle at 50% 50%, #d9a99a 0%, rgba(217, 169, 154, .5) 26%, rgba(217, 169, 154, 0) 54%);
+  animation: avatar-aura-spin 9s ease-in-out infinite;
 }
 
 .animate-float-slow { animation: float 9s ease-in-out infinite; }
