@@ -132,8 +132,8 @@ export default function BedroomIntro() {
           <div className="absolute bottom-[18%] right-[13%] flex gap-2"><span className="size-3 bg-[#d9a99a]" /><span className="size-3 bg-[#f5efc6]" /></div>
         </div>
 
-        <div className="absolute left-1/2 top-[10%] z-10 flex w-[min(76vw,690px)] -translate-x-1/2 flex-col items-center sm:top-[8%]">
-          <div className="w-full rounded-[18px] border-[10px] border-[#1c1e25] bg-[#4d5059] p-3 shadow-[0_28px_55px_rgba(0,0,0,.72),0_0_50px_rgba(0,240,255,.08)] sm:rounded-[28px] sm:border-[14px] sm:p-5">
+        <div className="absolute left-1/2 top-[10%] bottom-[31%] z-10 flex w-[min(76vw,690px)] -translate-x-1/2 flex-col items-center sm:top-[8%]">
+          <div className="w-full shrink-0 rounded-[18px] border-[10px] border-[#1c1e25] bg-[#4d5059] p-3 shadow-[0_28px_55px_rgba(0,0,0,.72),0_0_50px_rgba(0,240,255,.08)] sm:rounded-[28px] sm:border-[14px] sm:p-5">
             <div
               ref={screenRef}
               className="crt-flicker relative aspect-[16/10] w-full overflow-hidden rounded-[10px] border-[6px] border-[#20222a] bg-[#07111c] shadow-[inset_0_0_45px_rgba(0,0,0,.85)] sm:rounded-[18px] sm:border-[10px]"
@@ -195,8 +195,8 @@ export default function BedroomIntro() {
               </div>
             </div>
           </div>
-          <div className="h-[clamp(14px,2.4vh,24px)] w-[12%] bg-[#30323a]" />
-          <div className="h-3 w-[38%] border-x-4 border-[#1c1e25] bg-[#4d5059]" />
+          <div className="w-[12%] flex-1 bg-[#30323a]" />
+          <div className="h-3 w-[38%] shrink-0 border-x-4 border-[#1c1e25] bg-[#4d5059]" />
         </div>
 
         <div className="absolute inset-x-4 bottom-[3.5%] z-20 text-center sm:inset-x-8">

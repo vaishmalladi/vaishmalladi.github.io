@@ -41,6 +41,8 @@ export default function CustomCursor() {
   const springY = useSpring(cursorY, { damping: 28, stiffness: 320, mass: 0.4 });
   const ringX = useSpring(cursorX, { damping: 22, stiffness: 160, mass: 0.6 });
   const ringY = useSpring(cursorY, { damping: 22, stiffness: 160, mass: 0.6 });
+  const auraX = useSpring(cursorX, { damping: 16, stiffness: 60, mass: 0.9 });
+  const auraY = useSpring(cursorY, { damping: 16, stiffness: 60, mass: 0.9 });
   const frame = useRef<number | null>(null);
 
   useEffect(() => {
@@ -80,6 +82,26 @@ export default function CustomCursor() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[300]">
+      <motion.div
+        className="fixed left-0 top-0 select-none"
+        style={{ x: auraX, y: auraY, translateX: "-50%", translateY: "-50%" }}
+        animate={{
+          width: isExpanded ? 130 : 100,
+          height: isExpanded ? 130 : 100,
+          opacity: variant === "text" ? 0.35 : 0.6,
+        }}
+        transition={{ type: "spring", damping: 18, stiffness: 90 }}
+      >
+        <div
+          className="cursor-aura-spin h-full w-full rounded-full"
+          style={{
+            background:
+              "conic-gradient(from 0deg, var(--color-heading), var(--color-heading-alt), var(--color-gold), var(--color-mint), var(--color-heading))",
+            filter: "blur(22px)",
+            mixBlendMode: "multiply",
+          }}
+        />
+      </motion.div>
       <motion.div
         className="fixed left-0 top-0 select-none"
         style={{ x: springX, y: springY, translateX: "0%", translateY: "0%" }}

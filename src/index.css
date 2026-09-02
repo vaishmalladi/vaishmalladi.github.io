@@ -91,6 +91,15 @@ select:focus-visible,
   98% { opacity: 1; }
 }
 
+@keyframes cursor-aura-spin {
+  0% { transform: rotate(0deg); filter: hue-rotate(0deg); }
+  100% { transform: rotate(360deg); filter: hue-rotate(360deg); }
+}
+
+.cursor-aura-spin {
+  animation: cursor-aura-spin 6s linear infinite;
+}
+
 .animate-float-slow { animation: float 9s ease-in-out infinite; }
 .animate-float-slower { animation: float 14s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 3.2s ease-in-out infinite; }
