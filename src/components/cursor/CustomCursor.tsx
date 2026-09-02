@@ -84,9 +84,9 @@ export default function CustomCursor() {
         className="cursor-aura-glow fixed left-0 top-0 rounded-full"
         style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
         animate={{
-          width: isExpanded ? 260 : 200,
-          height: isExpanded ? 260 : 200,
-          opacity: variant === "text" ? 0.25 : 0.65,
+          width: isExpanded ? 380 : 300,
+          height: isExpanded ? 380 : 300,
+          opacity: variant === "text" ? 0.12 : 0.4,
         }}
         transition={{ duration: 0.2 }}
       />
