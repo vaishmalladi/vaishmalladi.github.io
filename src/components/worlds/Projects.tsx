@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { useWorldSection } from "../../hooks/useWorldSection";
-import { PROJECTS } from "../../data/content";
+import { ACHIEVEMENTS, PROFILE_STATS, PROJECTS } from "../../data/content";
+import { useGameStore } from "../../store/gameStore";
 import ChapterCard from "../project/ChapterCard";
 
 export default function Projects() {
   const ref = useWorldSection("projects");
+  const unlockedAchievements = useGameStore((s) => s.unlockedAchievements);
 
   return (
     <section
@@ -49,6 +51,69 @@ export default function Projects() {
             <ChapterCard key={project.id} project={project} chapterNumber={index + 1} />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-12 border-t border-[var(--color-hairline)]/15 pt-8 sm:mt-16 sm:pt-10"
+        >
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <h3 className="font-display text-2xl font-black sm:text-3xl">Player Stats</h3>
+            <p className="font-pixel text-[9px] uppercase text-[var(--color-gold)]">Mission impact</p>
+          </div>
+          <div className="grid grid-cols-2 border-l border-t border-[var(--color-hairline)]/15 lg:grid-cols-3">
+            {PROFILE_STATS.map((stat) => (
+              <div
+                key={stat.label}
+                className="min-w-0 border-b border-r border-[var(--color-hairline)]/15 bg-[var(--color-veil)]/[0.035] p-4 sm:p-6"
+              >
+                <p className="font-display text-2xl font-black text-[var(--color-violet-deep)] sm:text-3xl">
+                  {stat.value}
+                  {stat.suffix}
+                </p>
+                <p className="mt-2 max-w-[26ch] font-mono text-[10px] leading-4 text-[var(--color-ink)]/65 sm:text-xs sm:leading-5">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-10 border-t border-[var(--color-hairline)]/15 pt-8 sm:mt-14 sm:pt-10"
+        >
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <h3 className="font-display text-2xl font-black sm:text-3xl">Achievements</h3>
+            <p className="font-pixel text-[9px] uppercase text-[var(--color-gold)]">
+              {unlockedAchievements.length} / {Object.keys(ACHIEVEMENTS).length} unlocked
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2 sm:gap-3">
+            {Object.values(ACHIEVEMENTS).map((ach, i) => {
+              const unlocked = unlockedAchievements.includes(ach.id);
+              return (
+                <motion.div
+                  key={ach.id}
+                  title={unlocked ? ach.description : "Keep exploring to unlock"}
+                  animate={unlocked ? { y: [0, -4, 0] } : {}}
+                  transition={{ repeat: Infinity, duration: 2.4, delay: (i % 5) * 0.3 }}
+                  className={`flex items-center gap-2 border px-3 py-2 text-xs font-medium sm:text-sm ${
+                    unlocked
+                      ? "border-[var(--color-hairline)]/25 bg-[var(--color-veil)]/[0.06] text-[var(--color-ink)]"
+                      : "border-[var(--color-hairline)]/[0.08] bg-[var(--color-veil)]/[0.02] text-[var(--color-ink-faint)] opacity-50 grayscale"
+                  }`}
+                >
+                  <span>{ach.icon}</span>
+                  <span>{ach.title}</span>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

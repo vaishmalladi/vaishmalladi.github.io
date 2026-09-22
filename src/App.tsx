@@ -5,7 +5,6 @@ import AuroraBackground from "./components/background/AuroraBackground";
 import CustomCursor from "./components/cursor/CustomCursor";
 import BedroomIntro from "./components/intro/BedroomIntro";
 import Navbar from "./components/nav/Navbar";
-import AchievementToast from "./components/hud/AchievementToast";
 import CompletionModal from "./components/hud/CompletionModal";
 import MissionModal from "./components/project/MissionModal";
 import BehanceModal from "./components/project/BehanceModal";
@@ -43,7 +42,6 @@ function App() {
       <CustomCursor />
       <BedroomIntro />
       <Navbar />
-      <AchievementToast />
       <CompletionModal />
       <MissionModal />
       <BehanceModal />
