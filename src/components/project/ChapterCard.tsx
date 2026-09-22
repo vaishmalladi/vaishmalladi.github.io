@@ -167,24 +167,21 @@ export default function ChapterCard({ project, chapterNumber }: ChapterCardProps
       viewport={{ once: true, margin: "-60px" }}
       whileHover={{ y: -7, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
-      className="group relative flex aspect-[4/3] flex-col justify-between overflow-hidden border border-[var(--color-hairline)]/18 bg-[var(--color-canvas)] p-4 text-left shadow-[0_24px_55px_-22px_rgba(0,0,0,.8)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-cyan)] sm:aspect-video sm:p-5"
+      className="group relative flex aspect-[4/5] flex-col justify-between overflow-hidden border border-[var(--color-hairline)]/18 bg-[var(--color-canvas)] p-4 text-left shadow-[0_24px_55px_-22px_rgba(0,0,0,.8)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-cyan)] sm:aspect-[4/5] sm:p-5"
       aria-label={`Open chapter ${chapterNumber}: ${project.title}`}
     >
-      {project.screens && project.screens.length > 0 ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-[#05070b]">
-          <img src={project.screens[0].src} alt="" aria-hidden="true" className="size-full object-contain" />
+      {hasCover ? (
+        <div className="absolute inset-x-0 top-0 h-[52%] bg-[#05070b]">
+          <img src={project.screens![0].src} alt="" aria-hidden="true" className="size-full object-cover" />
         </div>
       ) : (
-        <PosterArt projectId={project.id} chapterNumber={chapterNumber} />
+        <div className="absolute inset-x-0 top-0 h-[52%] overflow-hidden">
+          <PosterArt projectId={project.id} chapterNumber={chapterNumber} />
+        </div>
       )}
-      <span
-        className={`pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/55 ${
-          hasCover ? "opacity-0 transition-opacity duration-300 group-hover:opacity-100 [@media(hover:none)]:opacity-100" : ""
-        }`}
-      />
-      {hasCover && (
-        <span className="pointer-events-none absolute inset-0 bg-black/78 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [@media(hover:none)]:opacity-50" />
-      )}
+
+      <span className="pointer-events-none absolute inset-x-0 top-0 h-[52%] bg-gradient-to-b from-black/10 via-transparent to-black/45" />
+      <span className="pointer-events-none absolute inset-x-0 bottom-0 top-[52%] bg-[var(--color-canvas)]" />
 
       <div className="relative z-10 flex items-center justify-between">
         <span className="border border-white/30 bg-black/55 px-2.5 py-1.5 font-pixel text-[8px] uppercase tracking-[0.14em] text-white backdrop-blur-sm">
@@ -193,25 +190,31 @@ export default function ChapterCard({ project, chapterNumber }: ChapterCardProps
         {completed && <span className="bg-[var(--color-mint)] px-2 py-1 font-pixel text-[7px] text-[var(--color-ink-on-accent)]">CLEARED</span>}
       </div>
 
-      <div
-        className={`relative z-10 ${
-          hasCover ? "opacity-0 transition-opacity duration-300 group-hover:opacity-100 [@media(hover:none)]:opacity-100" : ""
-        }`}
-      >
-        <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">
+      <div className="relative z-10 flex flex-col gap-3">
+        <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--color-ink)]/55">
           {world?.shortLabel} // {project.year}
         </p>
-        <h3 className="mt-2 max-w-[90%] font-display text-[clamp(1.5rem,3vw,2.35rem)] font-black leading-[0.95] text-white">
+        <h3 className="font-display text-[clamp(1.2rem,2.2vw,1.8rem)] font-black leading-[0.98] text-[var(--color-ink)]">
           {project.title}
         </h3>
-        <p className="mt-2 line-clamp-2 text-xs leading-5 text-white/78 sm:text-sm">{project.tagline}</p>
+        <p className="line-clamp-2 font-mono text-xs leading-5 text-[var(--color-ink)]/70">
+          {project.tagline}
+        </p>
 
-        <div className="mt-4 flex items-center justify-between border-t border-white/15 pt-3 font-mono text-[10px] text-white/78">
-          <span title={`Difficulty ${project.difficulty}/5`}>
-            <span className="text-[var(--color-gold)]">{"★".repeat(project.difficulty)}</span>
-            <span className="text-white/18">{"★".repeat(5 - project.difficulty)}</span>
-          </span>
-          <span>EST. {project.estimatedMinutes} MIN</span>
+        <div className="flex flex-wrap gap-1.5">
+          {project.tags.slice(0, 3).map((tag) => (
+            <span
+              key={tag}
+              className="border border-[var(--color-hairline)]/25 bg-[var(--color-veil)]/[0.04] px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-[var(--color-ink)]/70"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-1 flex items-start gap-2 border-t border-[var(--color-hairline)]/18 pt-3 font-mono text-[10px] leading-5">
+          <span aria-hidden="true" className="text-[var(--color-violet-deep)]">→</span>
+          <span className="line-clamp-2 text-[var(--color-violet-deep)]">{project.reward}</span>
         </div>
       </div>
 

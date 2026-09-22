@@ -11,6 +11,8 @@ import BehanceModal from "./components/project/BehanceModal";
 import Home from "./components/Home";
 import AboutMe from "./components/worlds/AboutMe";
 import Projects from "./components/worlds/Projects";
+import Impact from "./components/worlds/Impact";
+import DesigningWithAI from "./components/worlds/DesigningWithAI";
 import BehanceShowcase from "./components/worlds/BehanceShowcase";
 import DesignWorkshop from "./components/worlds/DesignWorkshop";
 import BeyondDesign from "./components/worlds/BeyondDesign";
@@ -50,6 +52,8 @@ function App() {
         <Home />
         <AboutMe />
         <Projects />
+        <Impact />
+        <DesigningWithAI />
         <BehanceShowcase />
         <DesignWorkshop />
         <BeyondDesign />

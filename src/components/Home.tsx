@@ -78,7 +78,7 @@ export default function Home() {
           <div className="mb-5 flex items-center justify-center gap-3 lg:justify-start">
             <span className="border-2 border-[var(--color-violet)] bg-[var(--color-violet)] px-2 py-1 font-pixel text-[8px] text-[var(--color-ink-on-accent)]">P1</span>
             <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-cyan)] sm:text-xs">
-              Product designer
+              Product Designer · Microsoft
             </span>
           </div>
 
@@ -92,8 +92,8 @@ export default function Home() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl font-mono text-sm leading-7 text-[var(--color-ink)]/75 sm:text-base lg:mx-0">
-            Shaping enterprise platforms, AI copilots, and design systems into products people can
-            understand at a glance.
+            I design enterprise and AI-powered experiences at Microsoft — turning complex workflows,
+            Copilot surfaces, and partner platforms into intuitive products people can actually use.
           </p>
         </motion.div>
 
@@ -126,7 +126,7 @@ export default function Home() {
           transition={{ duration: 0.65, delay: 0.3 }}
         >
           <div className="flex items-center justify-between gap-4">
-            <p className="font-pixel text-[9px] uppercase text-[var(--color-ink)]/60">Player loadout</p>
+            <p className="font-pixel text-[9px] uppercase text-[var(--color-ink)]/60">Selected impact</p>
             <span className="flex items-center gap-2 font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-mint)]">
               <span className="size-1.5 bg-[var(--color-mint)] shadow-[0_0_8px_var(--color-mint)]" /> Ready
             </span>
@@ -134,9 +134,9 @@ export default function Home() {
 
           <div className="mt-6 grid grid-cols-3 border-y border-[var(--color-hairline)]/12 py-4">
             {[
-              ["02+", "Years"],
-              ["24+", "Products"],
-              ["08M+", "Users"],
+              ["500K+", "Seats influenced"],
+              ["2.8×", "Partner usage"],
+              ["+93%", "Lighthouse visits"],
             ].map(([value, label]) => (
               <div key={label} className="border-r border-[var(--color-hairline)]/12 px-3 first:pl-0 last:border-r-0 last:pr-0">
                 <p className="font-pixel text-[clamp(11px,1.2vw,15px)] text-[var(--color-gold)]">{value}</p>

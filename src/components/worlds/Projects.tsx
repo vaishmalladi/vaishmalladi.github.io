@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useWorldSection } from "../../hooks/useWorldSection";
-import { ACHIEVEMENTS, PROFILE_STATS, PROJECTS } from "../../data/content";
+import { ACHIEVEMENTS, PROJECTS } from "../../data/content";
 import { useGameStore } from "../../store/gameStore";
 import ChapterCard from "../project/ChapterCard";
 
@@ -57,34 +57,6 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           className="mt-12 border-t border-[var(--color-hairline)]/15 pt-8 sm:mt-16 sm:pt-10"
-        >
-          <div className="mb-6 flex items-end justify-between gap-4">
-            <h3 className="font-display text-2xl font-black sm:text-3xl">Player Stats</h3>
-            <p className="font-pixel text-[9px] uppercase text-[var(--color-gold)]">Mission impact</p>
-          </div>
-          <div className="grid grid-cols-2 border-l border-t border-[var(--color-hairline)]/15 lg:grid-cols-3">
-            {PROFILE_STATS.map((stat) => (
-              <div
-                key={stat.label}
-                className="min-w-0 border-b border-r border-[var(--color-hairline)]/15 bg-[var(--color-veil)]/[0.035] p-4 sm:p-6"
-              >
-                <p className="font-display text-2xl font-black text-[var(--color-violet-deep)] sm:text-3xl">
-                  {stat.value}
-                  {stat.suffix}
-                </p>
-                <p className="mt-2 max-w-[26ch] font-mono text-[10px] leading-4 text-[var(--color-ink)]/65 sm:text-xs sm:leading-5">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="mt-10 border-t border-[var(--color-hairline)]/15 pt-8 sm:mt-14 sm:pt-10"
         >
           <div className="mb-6 flex items-end justify-between gap-4">
             <h3 className="font-display text-2xl font-black sm:text-3xl">Achievements</h3>
